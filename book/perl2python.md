@@ -10,192 +10,157 @@ Dive into each module to uncover the intricacies and nuances of transitioning yo
 
 ---
 
-- [Objects and Data Structures](#objects-and-data-structures)
-  - [Basic data types: scalar values in PERL vs. Python](#basic-data-types-scalar-values-in-perl-vs-python)
-    - [1. Integers:](#1-integers)
-    - [2. Floating-Point Numbers:](#2-floating-point-numbers)
-    - [3. Strings:](#3-strings)
-    - [4. Undefined and Null Values:](#4-undefined-and-null-values)
-  - [Collections: arrays in PERL vs. Python's lists, tuples, and sets](#collections-arrays-in-perl-vs-pythons-lists-tuples-and-sets)
-    - [1. Arrays in PERL vs Lists in Python:](#1-arrays-in-perl-vs-lists-in-python)
-    - [2. Tuples in Python:](#2-tuples-in-python)
-    - [3. Hashes in PERL vs Dictionaries in Python:](#3-hashes-in-perl-vs-dictionaries-in-python)
-    - [4. Sets in Python:](#4-sets-in-python)
-  - [Accessing elements, slicing, and mutability differences](#accessing-elements-slicing-and-mutability-differences)
-    - [1. Accessing Elements:](#1-accessing-elements)
-    - [2. Slicing:](#2-slicing)
-  - [Hashes in PERL vs. dictionaries in Python](#hashes-in-perl-vs-dictionaries-in-python)
-    - [**Hashes in PERL**:](#hashes-in-perl)
-    - [**Dictionaries in Python**:](#dictionaries-in-python)
-    - [**Key Differences**:](#key-differences)
-  - [Python's comprehensions for lists, sets, and dictionaries](#pythons-comprehensions-for-lists-sets-and-dictionaries)
-    - [1. List Comprehensions:](#1-list-comprehensions)
-    - [2. Set Comprehensions:](#2-set-comprehensions)
-    - [3. Dictionary Comprehensions:](#3-dictionary-comprehensions)
-    - [Equivalent of perl array grep in python](#equivalent-of-perl-array-grep-in-python)
-    - [equivalent of Perl map](#equivalent-of-perl-map)
-  - [Accessing elements, slicing, and mutability differences](#accessing-elements-slicing-and-mutability-differences-1)
-    - [1. Accessing Elements:](#1-accessing-elements-1)
-    - [2. Slicing:](#2-slicing-1)
-    - [3. Mutability:](#3-mutability)
-  - [Other Data Structures Similar Between Perl and Python](#other-data-structures-similar-between-perl-and-python)
-    - [Python's `array` Module:](#pythons-array-module)
-      - [Key Features:](#key-features)
-      - [Example:](#example)
-      - [When to Use the `array` Module:](#when-to-use-the-array-module)
-      - [Comparison with Perl Arrays:](#comparison-with-perl-arrays)
-      - [Conclusion:](#conclusion)
-    - [`collections.deque` in Python:](#collectionsdeque-in-python)
-      - [Perl Arrays:](#perl-arrays)
-      - [Comparison:](#comparison)
-    - [`shelve` (Python) and Perl's DBM functionality](#shelve-python-and-perls-dbm-functionality)
-      - [`shelve` in Python:](#shelve-in-python)
-      - [DBM in Perl:](#dbm-in-perl)
-      - [Comparison:](#comparison-1)
-    - [`queue` (Python) and Perl Threads \& IPC (Inter-Process Communication)](#queue-python-and-perl-threads--ipc-inter-process-communication)
-      - [`queue` in Python:](#queue-in-python)
-      - [Perl Threads \& IPC:](#perl-threads--ipc)
-      - [Comparison:](#comparison-2)
-- [Memory Management](#memory-management)
-  - [Automatic garbage collection in both languages](#automatic-garbage-collection-in-both-languages)
-    - [Perl Memory Management: Reference Counting](#perl-memory-management-reference-counting)
-    - [Python Memory Management: Reference Counting and Generational Garbage Collection](#python-memory-management-reference-counting-and-generational-garbage-collection)
-      - [Reference Counting](#reference-counting)
-      - [Generational Garbage Collection](#generational-garbage-collection)
-    - [Conclusion](#conclusion-1)
-  - [Reference counting in Python](#reference-counting-in-python)
-    - [Reference Counting Basics](#reference-counting-basics)
-    - [How Reference Count Changes](#how-reference-count-changes)
-    - [Drawbacks of Reference Counting](#drawbacks-of-reference-counting)
-    - [Checking Reference Count](#checking-reference-count)
-  - [Circular references and `weakref` in Python](#circular-references-and-weakref-in-python)
-    - [Circular References in Python](#circular-references-in-python)
-    - [`weakref` in Python](#weakref-in-python)
-  - [Scoping: local vs. global variables in PERL and Python](#scoping-local-vs-global-variables-in-perl-and-python)
-    - [Perl](#perl)
-      - [Local Variables (using `my`):](#local-variables-using-my)
-      - [Global Variables:](#global-variables)
-    - [Python](#python)
-      - [Local Variables:](#local-variables)
-      - [Global Variables:](#global-variables-1)
-    - [Conditions scope](#conditions-scope)
-      - [Perl Conditions and Loops](#perl-conditions-and-loops)
-      - [Python Conditions](#python-conditions)
-    - [The `nonlocal` keyword](#the-nonlocal-keyword)
-    - [Conclusion](#conclusion-2)
-- [Optimal Usage of Python Data Structures](#optimal-usage-of-python-data-structures)
-  - [Situational use of lists vs. tuples vs. dictionaries vs. sets](#situational-use-of-lists-vs-tuples-vs-dictionaries-vs-sets)
-    - [1. Lists](#1-lists)
-    - [2. Tuples](#2-tuples)
-    - [3. Dictionaries](#3-dictionaries)
-    - [4. Sets](#4-sets)
-    - [Summary:](#summary)
-  - [Big O implications for data structures](#big-o-implications-for-data-structures)
-    - [1. Lists:](#1-lists-1)
-    - [2. Dictionaries (dict):](#2-dictionaries-dict)
-    - [3. Sets:](#3-sets)
-    - [4. Strings:](#4-strings)
-    - [5. `array` Module:](#5-array-module)
-    - [6. `collections.deque`:](#6-collectionsdeque)
-    - [7. `collections.defaultdict`:](#7-collectionsdefaultdict)
-    - [8. `collections.Counter`:](#8-collectionscounter)
-    - [9. `collections.OrderedDict`:](#9-collectionsordereddict)
-    - [10. `shelve`:](#10-shelve)
-    - [11. `queue`:](#11-queue)
-  - [Performance implications of Lists](#performance-implications-of-lists)
-    - [Performance Tips:](#performance-tips)
-    - [Notable performance upgrades](#notable-performance-upgrades)
-  - [Performance implications of Dictionaries](#performance-implications-of-dictionaries)
-    - [Hash Collisions in Python Dictionaries](#hash-collisions-in-python-dictionaries)
-      - [Handling Hash Collisions in Python Dictionaries:](#handling-hash-collisions-in-python-dictionaries)
-      - [Performance Implications:](#performance-implications)
-      - [Key Takeaways:](#key-takeaways)
-    - [Notable performance upgrades](#notable-performance-upgrades-1)
-  - [Performance implications of Sets](#performance-implications-of-sets)
-    - [Performance Tips:](#performance-tips-1)
-    - [Notable performance upgrades](#notable-performance-upgrades-2)
-    - [General Optimizations:](#general-optimizations)
-  - [Suggestions for Developers:](#suggestions-for-developers)
-    - [Lists:](#lists)
-    - [Dictionaries:](#dictionaries)
-    - [Sets:](#sets)
-    - [Key Priciples of Optimizing:](#key-priciples-of-optimizing)
-- [Differences in Operators](#differences-in-operators)
-  - [Mathematical, comparison, assignment, and logical operators in both languages](#mathematical-comparison-assignment-and-logical-operators-in-both-languages)
-    - [1. Mathematical Operators:](#1-mathematical-operators)
-    - [2. Comparison Operators:](#2-comparison-operators)
-    - [3. Assignment Operators:](#3-assignment-operators)
-    - [4. Logical Operators:](#4-logical-operators)
-  - [The . operator for string concatenation in PERL vs. + in Python](#the--operator-for-string-concatenation-in-perl-vs--in-python)
-    - [Perl: `. Operator`](#perl--operator)
-    - [Python: `+ Operator`](#python--operator)
-    - [Comparison:](#comparison-3)
-  - [Formating Strings with `printf`](#formating-strings-with-printf)
-    - [Perl: `sprintf`](#perl-sprintf)
-    - [Python: `format`](#python-format)
-    - [Python: f-strings (Python 3.6+)](#python-f-strings-python-36)
-    - [Summary:](#summary-1)
-  - [Bitwise operators](#bitwise-operators)
-    - [1. Bitwise AND:](#1-bitwise-and)
-    - [2. Bitwise OR:](#2-bitwise-or)
-    - [3. Bitwise XOR (Exclusive OR):](#3-bitwise-xor-exclusive-or)
-    - [4. Bitwise NOT:](#4-bitwise-not)
-    - [5. Left Shift:](#5-left-shift)
-    - [6. Right Shift:](#6-right-shift)
-    - [Comparison:](#comparison-4)
-  - [The use of == and is in Python](#the-use-of--and-is-in-python)
-    - [`==`: Value Equality](#-value-equality)
-    - [`is`: Identity Comparison](#is-identity-comparison)
-    - [Points to Note:](#points-to-note)
-    - [Conclusion:](#conclusion-3)
-- [Control Structures](#control-structures)
-  - [Conditional structures (if, else, elif)](#conditional-structures-if-else-elif)
-    - [Perl: Conditional Structures](#perl-conditional-structures)
-      - [1. **if**:](#1-if)
-      - [2. **if-else**:](#2-if-else)
-      - [3. **if-elsif-else**:](#3-if-elsif-else)
-      - [Note:](#note)
-    - [Python: Conditional Structures](#python-conditional-structures)
-      - [1. **if**:](#1-if-1)
-      - [2. **if-else**:](#2-if-else-1)
-      - [3. **if-elif-else**:](#3-if-elif-else)
-      - [Note:](#note-1)
-    - [Comparison:](#comparison-5)
-    - [Truthiness](#truthiness)
-      - [Table Comparison of Truthiness](#table-comparison-of-truthiness)
-      - [Notes:](#notes)
-      - [Reference Truthiness](#reference-truthiness)
-  - [Loop structures: for and while loops](#loop-structures-for-and-while-loops)
-  - [1. `for` Loops:](#1-for-loops)
-    - [Perl:](#perl-1)
-    - [Python:](#python-1)
-  - [2. `while` Loops:](#2-while-loops)
-    - [Perl:](#perl-2)
-    - [Python:](#python-2)
-    - [Other Loop-related Nuances:](#other-loop-related-nuances)
-- [Functions and Subroutines](#functions-and-subroutines)
-  - [Defining and calling subroutines in PERL vs. functions in Python](#defining-and-calling-subroutines-in-perl-vs-functions-in-python)
-    - [Defining and Calling:](#defining-and-calling)
-    - [Parameters and Arguments:](#parameters-and-arguments)
-    - [Returning Values:](#returning-values)
-    - [Context in Perl:](#context-in-perl)
-  - [Argument passing by value vs. reference](#argument-passing-by-value-vs-reference)
-    - [Perl](#perl-3)
-    - [Python](#python-3)
-  - [Anonymous subroutines in PERL vs. lambda functions in Python](#anonymous-subroutines-in-perl-vs-lambda-functions-in-python)
-    - [Anonymous Subroutines in Perl:](#anonymous-subroutines-in-perl)
-    - [Lambda Functions in Python:](#lambda-functions-in-python)
-    - [Key Differences:](#key-differences-1)
-  - [Tables of functions](#tables-of-functions)
+- [1. Objects and Data Structures](#1-objects-and-data-structures)
+  - [1.1. Basic data types: scalar values in PERL vs. Python](#11-basic-data-types-scalar-values-in-perl-vs-python)
+    - [1.1.1. Integers:](#111-integers)
+    - [1.1.2. Floating-Point Numbers:](#112-floating-point-numbers)
+    - [1.1.3. Strings:](#113-strings)
+    - [1.1.4. Undefined and Null Values:](#114-undefined-and-null-values)
+  - [1.2. Collections: arrays in PERL vs. Python's lists, tuples, and sets](#12-collections-arrays-in-perl-vs-pythons-lists-tuples-and-sets)
+    - [1.2.1. Arrays in PERL vs Lists in Python:](#121-arrays-in-perl-vs-lists-in-python)
+    - [1.2.2. Tuples in Python:](#122-tuples-in-python)
+    - [1.2.3. Hashes in PERL vs Dictionaries in Python:](#123-hashes-in-perl-vs-dictionaries-in-python)
+    - [1.2.4. Sets in Python:](#124-sets-in-python)
+  - [1.3. Accessing elements, slicing, and mutability differences](#13-accessing-elements-slicing-and-mutability-differences)
+    - [1.3.1. Accessing Elements:](#131-accessing-elements)
+    - [1.3.2. Slicing:](#132-slicing)
+  - [1.4. Hashes in PERL vs. dictionaries in Python](#14-hashes-in-perl-vs-dictionaries-in-python)
+    - [1.4.1. **Hashes in PERL**:](#141-hashes-in-perl)
+    - [1.4.2. **Dictionaries in Python**:](#142-dictionaries-in-python)
+    - [1.4.3. **Key Differences**:](#143-key-differences)
+  - [1.5. Python's comprehensions for lists, sets, and dictionaries](#15-pythons-comprehensions-for-lists-sets-and-dictionaries)
+    - [1.5.1. List Comprehensions:](#151-list-comprehensions)
+    - [1.5.2. Set Comprehensions:](#152-set-comprehensions)
+    - [1.5.3. Dictionary Comprehensions:](#153-dictionary-comprehensions)
+    - [1.5.4. Equivalent of perl array grep in python](#154-equivalent-of-perl-array-grep-in-python)
+    - [1.5.5. equivalent of Perl map](#155-equivalent-of-perl-map)
+  - [1.6. Accessing elements, slicing, and mutability differences](#16-accessing-elements-slicing-and-mutability-differences)
+    - [1.6.1. Accessing Elements:](#161-accessing-elements)
+    - [1.6.2. Slicing:](#162-slicing)
+    - [1.6.3. Mutability:](#163-mutability)
+  - [1.7. Other Data Structures Similar Between Perl and Python](#17-other-data-structures-similar-between-perl-and-python)
+    - [1.7.1. Python's `array` Module:](#171-pythons-array-module)
+    - [1.7.2. `collections.deque` in Python:](#172-collectionsdeque-in-python)
+    - [1.7.3. `shelve` (Python) and Perl's DBM functionality](#173-shelve-python-and-perls-dbm-functionality)
+    - [1.7.4. `queue` (Python) and Perl Threads \& IPC (Inter-Process Communication)](#174-queue-python-and-perl-threads--ipc-inter-process-communication)
+- [2. Memory Management](#2-memory-management)
+  - [2.1. Automatic garbage collection in both languages](#21-automatic-garbage-collection-in-both-languages)
+    - [2.1.1. Perl Memory Management: Reference Counting](#211-perl-memory-management-reference-counting)
+    - [2.1.2. Python Memory Management: Reference Counting and Generational Garbage Collection](#212-python-memory-management-reference-counting-and-generational-garbage-collection)
+    - [2.1.3. Conclusion](#213-conclusion)
+  - [2.2. Reference counting in Python](#22-reference-counting-in-python)
+    - [2.2.1. Reference Counting Basics](#221-reference-counting-basics)
+    - [2.2.2. How Reference Count Changes](#222-how-reference-count-changes)
+    - [2.2.3. Drawbacks of Reference Counting](#223-drawbacks-of-reference-counting)
+    - [2.2.4. Checking Reference Count](#224-checking-reference-count)
+  - [2.3. Circular references and `weakref` in Python](#23-circular-references-and-weakref-in-python)
+    - [2.3.1. Circular References in Python](#231-circular-references-in-python)
+    - [2.3.2. `weakref` in Python](#232-weakref-in-python)
+  - [2.4. Scoping: local vs. global variables in PERL and Python](#24-scoping-local-vs-global-variables-in-perl-and-python)
+    - [2.4.1. Perl](#241-perl)
+    - [2.4.2. Python](#242-python)
+    - [2.4.3. Conditions scope](#243-conditions-scope)
+    - [2.4.4. The `nonlocal` keyword](#244-the-nonlocal-keyword)
+    - [2.4.5. Conclusion](#245-conclusion)
+- [3. Optimal Usage of Python Data Structures](#3-optimal-usage-of-python-data-structures)
+  - [3.1. Situational use of lists vs. tuples vs. dictionaries vs. sets](#31-situational-use-of-lists-vs-tuples-vs-dictionaries-vs-sets)
+    - [3.1.1. Lists](#311-lists)
+    - [3.1.2. Tuples](#312-tuples)
+    - [3.1.3. Dictionaries](#313-dictionaries)
+    - [3.1.4. Sets](#314-sets)
+    - [3.1.5. Summary:](#315-summary)
+  - [3.2. Big O implications for data structures](#32-big-o-implications-for-data-structures)
+    - [3.2.1. Lists:](#321-lists)
+    - [3.2.2. Dictionaries (dict):](#322-dictionaries-dict)
+    - [3.2.3. Sets:](#323-sets)
+    - [3.2.4. Strings:](#324-strings)
+    - [3.2.5. `array` Module:](#325-array-module)
+    - [3.2.6. `collections.deque`:](#326-collectionsdeque)
+    - [3.2.7. `collections.defaultdict`:](#327-collectionsdefaultdict)
+    - [3.2.8. `collections.Counter`:](#328-collectionscounter)
+    - [3.2.9. `collections.OrderedDict`:](#329-collectionsordereddict)
+    - [3.2.10. `shelve`:](#3210-shelve)
+    - [3.2.11. `queue`:](#3211-queue)
+  - [3.3. Performance implications of Lists](#33-performance-implications-of-lists)
+    - [3.3.1. Performance Tips:](#331-performance-tips)
+    - [3.3.2. Notable performance upgrades](#332-notable-performance-upgrades)
+  - [3.4. Performance implications of Dictionaries](#34-performance-implications-of-dictionaries)
+    - [3.4.1. Hash Collisions in Python Dictionaries](#341-hash-collisions-in-python-dictionaries)
+    - [3.4.2. Notable performance upgrades](#342-notable-performance-upgrades)
+  - [3.5. Performance implications of Sets](#35-performance-implications-of-sets)
+    - [3.5.1. Performance Tips:](#351-performance-tips)
+    - [3.5.2. Notable performance upgrades](#352-notable-performance-upgrades)
+    - [3.5.3. General Optimizations:](#353-general-optimizations)
+  - [3.6. Suggestions for Developers:](#36-suggestions-for-developers)
+    - [3.6.1. Lists:](#361-lists)
+    - [3.6.2. Dictionaries:](#362-dictionaries)
+    - [3.6.3. Sets:](#363-sets)
+    - [3.6.4. Key Priciples of Optimizing:](#364-key-priciples-of-optimizing)
+- [4. Differences in Operators](#4-differences-in-operators)
+  - [4.1. Mathematical, comparison, assignment, and logical operators in both languages](#41-mathematical-comparison-assignment-and-logical-operators-in-both-languages)
+    - [4.1.1. Mathematical Operators:](#411-mathematical-operators)
+    - [4.1.2. Comparison Operators:](#412-comparison-operators)
+    - [4.1.3. Assignment Operators:](#413-assignment-operators)
+    - [4.1.4. Logical Operators:](#414-logical-operators)
+  - [4.2. The . operator for string concatenation in PERL vs. + in Python](#42-the--operator-for-string-concatenation-in-perl-vs--in-python)
+    - [4.2.1. Perl: `. Operator`](#421-perl--operator)
+    - [4.2.2. Python: `+ Operator`](#422-python--operator)
+    - [4.2.3. Comparison:](#423-comparison)
+  - [4.3. Formating Strings with `printf`](#43-formating-strings-with-printf)
+    - [4.3.1. Perl: `sprintf`](#431-perl-sprintf)
+    - [4.3.2. Python: `format`](#432-python-format)
+    - [4.3.3. Python: f-strings (Python 3.6+)](#433-python-f-strings-python-36)
+    - [4.3.4. Summary:](#434-summary)
+  - [4.4. Bitwise operators](#44-bitwise-operators)
+    - [4.4.1. Bitwise AND:](#441-bitwise-and)
+    - [4.4.2. Bitwise OR:](#442-bitwise-or)
+    - [4.4.3. Bitwise XOR (Exclusive OR):](#443-bitwise-xor-exclusive-or)
+    - [4.4.4. Bitwise NOT:](#444-bitwise-not)
+    - [4.4.5. Left Shift:](#445-left-shift)
+    - [4.4.6. Right Shift:](#446-right-shift)
+    - [4.4.7. Comparison:](#447-comparison)
+  - [4.5. The use of == and is in Python](#45-the-use-of--and-is-in-python)
+    - [4.5.1. `==`: Value Equality](#451--value-equality)
+    - [4.5.2. `is`: Identity Comparison](#452-is-identity-comparison)
+    - [4.5.3. Points to Note:](#453-points-to-note)
+    - [4.5.4. Conclusion:](#454-conclusion)
+- [5. Control Structures](#5-control-structures)
+  - [5.1. Conditional structures (if, else, elif)](#51-conditional-structures-if-else-elif)
+    - [5.1.1. Perl: Conditional Structures](#511-perl-conditional-structures)
+    - [5.1.2. Python: Conditional Structures](#512-python-conditional-structures)
+    - [5.1.3. Comparison:](#513-comparison)
+    - [5.1.4. Truthiness](#514-truthiness)
+  - [5.2. Loop structures: for and while loops](#52-loop-structures-for-and-while-loops)
+  - [5.3. `for` Loops:](#53-for-loops)
+    - [5.3.1. Perl:](#531-perl)
+    - [5.3.2. Python:](#532-python)
+  - [5.4. `while` Loops:](#54-while-loops)
+    - [5.4.1. Perl:](#541-perl)
+    - [5.4.2. Python:](#542-python)
+    - [5.4.3. Other Loop-related Nuances:](#543-other-loop-related-nuances)
+- [6. Functions and Subroutines](#6-functions-and-subroutines)
+  - [6.1. Defining and calling subroutines in PERL vs. functions in Python](#61-defining-and-calling-subroutines-in-perl-vs-functions-in-python)
+    - [6.1.1. Defining and Calling:](#611-defining-and-calling)
+    - [6.1.2. Parameters and Arguments:](#612-parameters-and-arguments)
+    - [6.1.3. Returning Values:](#613-returning-values)
+    - [6.1.4. Context in Perl:](#614-context-in-perl)
+  - [6.2. Argument passing by value vs. reference](#62-argument-passing-by-value-vs-reference)
+    - [6.2.1. Perl](#621-perl)
+    - [6.2.2. Python](#622-python)
+  - [6.3. Anonymous subroutines in PERL vs. lambda functions in Python](#63-anonymous-subroutines-in-perl-vs-lambda-functions-in-python)
+    - [6.3.1. Anonymous Subroutines in Perl:](#631-anonymous-subroutines-in-perl)
+    - [6.3.2. Lambda Functions in Python:](#632-lambda-functions-in-python)
+    - [6.3.3. Key Differences:](#633-key-differences)
+  - [6.4. Tables of functions](#64-tables-of-functions)
 
 
 ---
 
-# Objects and Data Structures
-## Basic data types: scalar values in PERL vs. Python
+# 1. Objects and Data Structures
+## 1.1. Basic data types: scalar values in PERL vs. Python
 Let's dive into the basic data types, specifically scalar values, and how they compare between PERL and Python:
 
-### 1. Integers:
+### 1.1.1. Integers:
 In both PERL and Python, integers are whole numbers (both positive and negative) without any decimal points.
 
 **PERL:**
@@ -210,7 +175,7 @@ int_val = 42
 print(int_val)  # prints 42
 ```
 
-### 2. Floating-Point Numbers:
+### 1.1.2. Floating-Point Numbers:
 These are numbers with decimal points.
 
 **PERL:**
@@ -225,7 +190,7 @@ float_val = 42.5
 print(float_val)  # prints 42.5
 ```
 
-### 3. Strings:
+### 1.1.3. Strings:
 Strings are sequences of characters.
 
 **PERL:**
@@ -250,7 +215,7 @@ print(str1)  # prints Hello, world!
 print(str2)  # prints Hello, Alice!
 ```
 
-### 4. Undefined and Null Values:
+### 1.1.4. Undefined and Null Values:
 In both languages, there is a concept of an undefined or null value.
 
 **PERL:**
@@ -273,10 +238,10 @@ print(undef_val)  # prints None
 
 These are the basic scalar data types in PERL and Python. While the concepts remain similar, the syntax and some nuances (like the distinction between single and double quotes in PERL) differ.
 
-## Collections: arrays in PERL vs. Python's lists, tuples, and sets
+## 1.2. Collections: arrays in PERL vs. Python's lists, tuples, and sets
 Sure! Collections are essential for managing multiple data items. Let's delve into the primary collection types in both PERL and Python:
 
-### 1. Arrays in PERL vs Lists in Python:
+### 1.2.1. Arrays in PERL vs Lists in Python:
 
 **PERL (Arrays):**
 In PERL, arrays are ordered collections of scalar values. They are prefixed with an `@` symbol.
@@ -294,7 +259,7 @@ fruits = ["apple", "banana", "cherry"]
 print(fruits[1])  # prints "banana"
 ```
 
-### 2. Tuples in Python:
+### 1.2.2. Tuples in Python:
 
 **Python (Tuples):**
 Tuples are like lists but are immutable, meaning once they are created, their elements cannot be changed.
@@ -306,7 +271,7 @@ print(fruits_tuple[1])  # prints "banana"
 
 PERL does not have a direct equivalent to Python's tuple. However, when you need immutable lists in PERL, you can use arrays and ensure they are not modified, or you can use other techniques/modules for immutability.
 
-### 3. Hashes in PERL vs Dictionaries in Python:
+### 1.2.3. Hashes in PERL vs Dictionaries in Python:
 
 **PERL (Hashes):**
 Hashes in PERL are collections of key-value pairs. They are prefixed with a `%` symbol.
@@ -332,7 +297,7 @@ fruit_colors = {
 print(fruit_colors["banana"])  # prints "yellow"
 ```
 
-### 4. Sets in Python:
+### 1.2.4. Sets in Python:
 
 **Python (Sets):**
 Sets are unordered collections that do not allow duplicate elements.
@@ -354,11 +319,11 @@ print join(", ", keys %fruits_set); # prints apple, banana, cherry (order may va
 
 Both languages provide versatile collection types. However, it's essential to understand their characteristics, especially mutability vs. immutability, to use them effectively in various contexts.
 
-## Accessing elements, slicing, and mutability differences
+## 1.3. Accessing elements, slicing, and mutability differences
 
 Let's discuss accessing elements, slicing, and mutability differences within the context of Python's primary data structures: lists, tuples, sets, and dictionaries.
 
-### 1. Accessing Elements:
+### 1.3.1. Accessing Elements:
 
 - **Lists**:
   ```python
@@ -384,7 +349,7 @@ Let's discuss accessing elements, slicing, and mutability differences within the
   print(items["b"])  # Outputs: 20
   ```
 
-### 2. Slicing:
+### 1.3.2. Slicing:
 
 Slicing is mainly applicable to lists and tuples, as they are ordered collections.
 
@@ -402,10 +367,10 @@ Slicing is mainly applicable to lists and tuples, as they are ordered collection
 
 You can't slice sets and dictionaries in a similar way. However, Python 3.7+ maintains the insertion order for dictionaries. So, you can use dictionary comprehensions to achieve "slicing"-like behavior for dictionaries.
 
-## Hashes in PERL vs. dictionaries in Python
+## 1.4. Hashes in PERL vs. dictionaries in Python
 Certainly! Hashes in PERL and dictionaries in Python are quite similar in that they both store data as key-value pairs. However, they have some differences in syntax and behavior. Let's dive into a detailed comparison:
 
-### **Hashes in PERL**:
+### 1.4.1. **Hashes in PERL**:
 
 Hashes in PERL are collections of key-value pairs. They are prefixed with a `%` symbol.
 
@@ -444,7 +409,7 @@ while (my ($fruit, $color) = each %fruit_colors) {
 }
 ```
 
-### **Dictionaries in Python**:
+### 1.4.2. **Dictionaries in Python**:
 
 Dictionaries in Python, often abbreviated as dicts, store data as key-value pairs.
 
@@ -485,7 +450,7 @@ for fruit, color in fruit_colors.items():
     print(f"{fruit} is {color}")
 ```
 
-### **Key Differences**:
+### 1.4.3. **Key Differences**:
 
 1. **Syntax**: The way you declare and interact with hashes/dicts is different in the two languages. PERL uses the `=>` operator to link keys and values, while Python uses the `:` symbol.
 2. **Existence Check**: PERL uses the `exists` function, while Python uses the `in` keyword.
@@ -494,10 +459,10 @@ for fruit, color in fruit_colors.items():
 
 Despite the syntax and method differences, the fundamental concept is the same. If you grasp the idea of key-value pair storage in one language, you can easily transition to the other with some adjustments to syntax and approach.
 
-## Python's comprehensions for lists, sets, and dictionaries
+## 1.5. Python's comprehensions for lists, sets, and dictionaries
 Python comprehensions are a concise way to create lists, sets, and dictionaries. They allow for a more readable and compact way of initializing these collections compared to using loops. Let's delve into each of them:
 
-### 1. List Comprehensions:
+### 1.5.1. List Comprehensions:
 
 List comprehensions provide a way to create lists. The basic syntax is:
 
@@ -515,7 +480,7 @@ evens = [x for x in numbers if x % 2 == 0]
 print(evens)  # Outputs: [2, 4]
 ```
 
-### 2. Set Comprehensions:
+### 1.5.2. Set Comprehensions:
 
 Set comprehensions are similar to list comprehensions but produce a set.
 
@@ -532,7 +497,7 @@ print(unique_evens)  # Outputs: {2, 4}
 
 Note: The resulting set contains no duplicates, which is inherent to the nature of sets.
 
-### 3. Dictionary Comprehensions:
+### 1.5.3. Dictionary Comprehensions:
 
 Dictionary comprehensions are used to create dictionaries.
 
@@ -558,7 +523,7 @@ In all the comprehensions mentioned above:
 
 Comprehensions offer a compact way to write code, but it's essential to ensure they remain readable. If a comprehension becomes too complicated, it might be clearer to use traditional loops.
 
-### Equivalent of perl array grep in python
+### 1.5.4. Equivalent of perl array grep in python
 
 In Perl, the `grep` function is used to filter elements of an array based on a condition. It's akin to the "filter" operation in many programming languages.
 
@@ -591,7 +556,7 @@ Python doesn't have a direct function named `grep`, but it provides several ways
 
 In essence, while Perl uses `grep` to filter elements of a list, Python provides list comprehensions and the `filter` function for the same purpose. If you're familiar with the concept of filtering a list in Perl using `grep`, you can easily adapt to Python's methods with a bit of practice.
 
-### equivalent of Perl map
+### 1.5.5. equivalent of Perl map
 The `map` function in Perl applies a function to each element of an array or list, returning a new array with the transformed elements.
 
 **Perl Example using `map`**:
@@ -625,11 +590,11 @@ Note that in the Python `map` example, we wrap the `map` function with `list()` 
 
 While Perl's `map` and Python's list comprehension or `map` function serve the same purpose, the way you approach and write the code differs. However, once you understand the concept in one language, you can easily transition and use it in the other.
 
-## Accessing elements, slicing, and mutability differences
+## 1.6. Accessing elements, slicing, and mutability differences
 
 Let's discuss accessing elements, slicing, and mutability differences within the context of Python's primary data structures: lists, tuples, sets, and dictionaries.
 
-### 1. Accessing Elements:
+### 1.6.1. Accessing Elements:
 
 - **Lists**:
   ```python
@@ -655,7 +620,7 @@ Let's discuss accessing elements, slicing, and mutability differences within the
   print(items["b"])  # Outputs: 20
   ```
 
-### 2. Slicing:
+### 1.6.2. Slicing:
 
 Slicing is mainly applicable to lists and tuples, as they are ordered collections.
 
@@ -673,7 +638,7 @@ Slicing is mainly applicable to lists and tuples, as they are ordered collection
 
 You can't slice sets and dictionaries in a similar way. However, Python 3.7+ maintains the insertion order for dictionaries. So, you can use dictionary comprehensions to achieve "slicing"-like behavior for dictionaries.
 
-### 3. Mutability:
+### 1.6.3. Mutability:
 
 - **Lists**: Mutable. You can change, add, or remove elements after the list is created.
   ```python
@@ -704,7 +669,7 @@ You can't slice sets and dictionaries in a similar way. However, Python 3.7+ mai
 
 **Note**: While some collections like lists and dictionaries are mutable, the immutability/mutability of the individual elements depends on their data types. For instance, strings in Python are immutable, regardless of where they are stored.
 
-## Other Data Structures Similar Between Perl and Python
+## 1.7. Other Data Structures Similar Between Perl and Python
 
 Python and Perl have several data structures and modules that might seem analogous because they both provide functionality for managing collections of data. However, while there are similarities, they also have differences in terms of implementation, capabilities, and intended use cases. Here are some Python modules and data structures with their potential Perl counterparts:
 
@@ -739,7 +704,7 @@ It's crucial to recognize that while Python and Perl have data structures or mod
 Lets dive into some of them.
 
 
-### Python's `array` Module:
+### 1.7.1. Python's `array` Module:
 
 The `array` module in Python provides a space-efficient storage of basic data types like bytes, floats, and integers. Unlike Python lists, which can contain items of heterogeneous types, arrays are homogeneous and store items of the same type.
 
@@ -790,7 +755,7 @@ arr.append(6)
 While Perl arrays are a foundational data structure for the language, Python's `array` module is more specialized. If you're transitioning from Perl to Python and are used to relying heavily on Perl arrays for numerical data, you might find the `array` module beneficial for specific use-cases. However, in many cases, Python's standard list will suffice, or you might consider using libraries like NumPy for advanced numerical operations.
 
 
-### `collections.deque` in Python:
+### 1.7.2. `collections.deque` in Python:
 
 `deque` (pronounced "deck") stands for "double-ended queue" and is implemented using a doubly-linked list in Python. This data structure provides fast O(1) appends and pops from both ends.
 
@@ -825,7 +790,7 @@ Perl arrays are ordered collections of scalars indexed by numbers. They are impl
 
 For developers transitioning from Perl to Python or vice versa, understanding these nuances can aid in translating algorithms or ensuring efficient operations when dealing with list-like structures.
 
-### `shelve` (Python) and Perl's DBM functionality
+### 1.7.3. `shelve` (Python) and Perl's DBM functionality
 
 `shelve` in Python and Perl's DBM functionality both aim to provide a straightforward way to persistently store key-value pairs. Let's delve into their features, usage, and then draw a comparison.
 
@@ -885,7 +850,7 @@ $hash{'key'} = 'Sample data';
 
 To conclude, both `shelve` in Python and Perl's DBM functionality provide similar utility, offering developers an easy way to persistently store key-value pairs. The difference mainly lies in their interface and flexibility in handling complex data structures.
 
-### `queue` (Python) and Perl Threads & IPC (Inter-Process Communication)
+### 1.7.4. `queue` (Python) and Perl Threads & IPC (Inter-Process Communication)
 
 The topic of `queue` in Python and Perl's Threads & IPC (Inter-Process Communication) is broad, so this is an overview to give you a fundamental understanding and comparison.
 
@@ -931,13 +896,13 @@ In Perl, threads are supported using the `threads` module, and IPC mechanisms ar
 In essence, while Python's `queue` offers a simplified mechanism tailored for thread communication, Perl provides a variety of tools and mechanisms that give more flexibility at the cost of added complexity. If transitioning between the two or translating code, understanding the underlying mechanisms and their best use-cases is vital. More about this in later chapters.
 
 
-# Memory Management
+# 2. Memory Management
 
 Memory management is a crucial aspect of any programming language, ensuring efficient utilization of available memory and preventing memory leaks. Both Perl and Python use automatic garbage collection systems, but their mechanisms and behaviors are different.
 
-## Automatic garbage collection in both languages
+## 2.1. Automatic garbage collection in both languages
 
-### Perl Memory Management: Reference Counting
+### 2.1.1. Perl Memory Management: Reference Counting
 
 Perl primarily uses a reference counting mechanism for its garbage collection. Each variable in Perl has a reference count associated with it. This count gets incremented when a reference to a variable is created and decremented when a reference goes out of scope.
 
@@ -952,7 +917,7 @@ When the reference count of a variable drops to zero, it means the variable is n
 
 Perl has modules, such as `Scalar::Util` (providing the `weaken` function), to help manage and break circular references.
 
-### Python Memory Management: Reference Counting and Generational Garbage Collection
+### 2.1.2. Python Memory Management: Reference Counting and Generational Garbage Collection
 
 Python uses a combination of reference counting and a generational garbage collection algorithm.
 
@@ -987,14 +952,14 @@ The garbage collection process primarily involves:
 **Disadvantages**:
 1. Overhead: Although the generational strategy is optimized, it does introduce some overhead.
 
-### Conclusion
+### 2.1.3. Conclusion
 
 While both Perl and Python use reference counting for memory management, Python has added an additional generational garbage collection mechanism to address the shortcomings of mere reference counting, particularly the problem of circular references. As a developer transitioning from Perl to Python, you won't need to make significant adjustments regarding memory management in typical applications, but it's good to be aware of the underlying mechanisms.
 
-## Reference counting in Python
+## 2.2. Reference counting in Python
 Reference counting is one of the fundamental techniques Python uses for memory management. Let's delve deeper into how it works.
 
-### Reference Counting Basics
+### 2.2.1. Reference Counting Basics
 
 Every object in Python has a reference count, which is essentially a count of the number of references to the object. When you create an object and assign it to a variable, the object's reference count increases. When a reference to an object is removed, the reference count decreases.
 
@@ -1013,7 +978,7 @@ del a          # Removes one reference, reference count becomes 1
 
 When the reference count of an object drops to zero, it means no references to that object remain in the program. This object becomes unreachable, and the memory occupied by it can be reclaimed.
 
-### How Reference Count Changes
+### 2.2.2. How Reference Count Changes
 
 Here are some situations where the reference count of an object changes:
 
@@ -1051,7 +1016,7 @@ Here are some situations where the reference count of an object changes:
    container = [x, y]  # Each object's reference count increases
    ```
 
-### Drawbacks of Reference Counting
+### 2.2.3. Drawbacks of Reference Counting
 
 While reference counting is straightforward and has the advantage of freeing up memory as soon as an object's count drops to zero, it isn't without its disadvantages:
 
@@ -1070,7 +1035,7 @@ Here, `a` and `b` are dictionaries referencing each other, creating a circular r
 
 To address the issue of circular references, Python introduces a cyclic garbage collector on top of reference counting, which checks for and cleans up these cycles.
 
-### Checking Reference Count
+### 2.2.4. Checking Reference Count
 
 Python's `sys` module provides a `getrefcount` function, which can be used to check the reference count of an object:
 
@@ -1083,9 +1048,9 @@ print(sys.getrefcount(x))  # This will show a count higher by 1 due to the tempo
 
 In conclusion, while reference counting is an essential mechanism in Python's memory management, it's complemented by a cyclic garbage collector to ensure thorough and efficient memory reclamation.
 
-## Circular references and `weakref` in Python
+## 2.3. Circular references and `weakref` in Python
 
-### Circular References in Python
+### 2.3.1. Circular References in Python
 
 Circular references occur when two or more objects reference each other, either directly or indirectly. This means they create a cycle of references, which prevents the reference count of each object in the cycle from ever reaching zero. As a result, these objects won't be garbage collected if only reference counting is used.
 
@@ -1107,7 +1072,7 @@ In the code above, `a` references `b`, and `b` references `a`. If we were to rel
 
 To handle such cases, Python introduced a cyclic garbage collector, which works alongside the reference counting system. It detects these circular references and removes them, thus freeing up the memory they occupy.
 
-### `weakref` in Python
+### 2.3.2. `weakref` in Python
 
 The `weakref` module in Python allows the creation of weak references to objects. A weak reference is a reference that doesn't increase the reference count of the object it points to. This means the object can be garbage collected even if there are weak references pointing to it.
 
@@ -1144,10 +1109,10 @@ In the example above, after deleting `obj`, accessing the weak reference using `
 
 In conclusion, while Python's garbage collector can handle circular references, the `weakref` module provides an elegant way to manage references without affecting the lifecycle of objects, granting developers finer control over memory management.
 
-## Scoping: local vs. global variables in PERL and Python
+## 2.4. Scoping: local vs. global variables in PERL and Python
 Both Perl and Python have a concept of local and global variables, but the behavior and semantics differ slightly between the two languages. Let's break down the scoping rules for each.
 
-### Perl
+### 2.4.1. Perl
 
 #### Local Variables (using `my`):
 
@@ -1185,7 +1150,7 @@ sub some_function {
 some_function();
 ```
 
-### Python
+### 2.4.2. Python
 
 #### Local Variables:
 
@@ -1223,7 +1188,7 @@ some_function()
 
 Note: Python also has the concept of nonlocal variables, used inside nested functions to refer to a variable in the nearest enclosing scope (excluding global scopes). This is declared using the `nonlocal` keyword.
 
-### Conditions scope
+### 2.4.3. Conditions scope
 
 In Python, conditions (like `if`, `elif`, and `else` statements) do not introduce new scopes for variables, unlike in Perl. This is a significant distinction from Perl, where nested conditions can indeed introduce new lexical scopes with the use of braces.
 
@@ -1257,7 +1222,7 @@ some_function()
 
 Here, even though `inside_if_var` was defined inside an `if` block, it's accessible outside that block but still within the function. The same apply for loops.
 
-### The `nonlocal` keyword
+### 2.4.4. The `nonlocal` keyword
 
 In Python, the `nonlocal` keyword is used to refer to a variable from the nearest enclosing scope that isn't global. This can be especially handy inside nested functions where you want to modify a variable from the outer function. It's important to note that `nonlocal` doesn't pertain directly to loops, but to nested functions. 
 
@@ -1289,7 +1254,7 @@ In the above example:
 
 The loop itself doesn't have a "nonlocal scope"; it's the nested function structure that introduces the need for `nonlocal`. The loop inside the nested function simply acts on the nonlocal variable just like it would on any other variable.
 
-### Conclusion
+### 2.4.5. Conclusion
 
 While both Perl and Python use a similar local vs. global dichotomy, the way they're accessed and declared varies:
 
@@ -1298,13 +1263,13 @@ While both Perl and Python use a similar local vs. global dichotomy, the way the
 3. **Conditios and Loops**: In Python, conditional blocks and loops do not introduce new variable scopes, whereas in Perl, they do. This can impact variable visibility and potentially lead to bugs if not considered.
 
 
-# Optimal Usage of Python Data Structures
+# 3. Optimal Usage of Python Data Structures
 
-## Situational use of lists vs. tuples vs. dictionaries vs. sets
+## 3.1. Situational use of lists vs. tuples vs. dictionaries vs. sets
 
 In Python, lists, tuples, dictionaries, and sets are fundamental data structures that each have unique characteristics and are suited to specific tasks. Let's delve into the typical use cases for each, highlighting their distinctive properties and best-suited scenarios.
 
-### 1. Lists
+### 3.1.1. Lists
 
 **Characteristics**:
 - Ordered collection of items.
@@ -1321,7 +1286,7 @@ In Python, lists, tuples, dictionaries, and sets are fundamental data structures
 fruits = ["apple", "banana", "cherry", "apple"]
 ```
 
-### 2. Tuples
+### 3.1.2. Tuples
 
 **Characteristics**:
 - Ordered collection of items.
@@ -1338,7 +1303,7 @@ fruits = ["apple", "banana", "cherry", "apple"]
 coordinates = (4.0, 5.0)
 ```
 
-### 3. Dictionaries
+### 3.1.3. Dictionaries
 
 **Characteristics**:
 - Collection of key-value pairs.
@@ -1360,7 +1325,7 @@ user_data = {
 }
 ```
 
-### 4. Sets
+### 3.1.4. Sets
 
 **Characteristics**:
 - Unordered collection of unique items.
@@ -1377,7 +1342,7 @@ user_data = {
 prime_numbers = {2, 3, 5, 7, 11}
 ```
 
-### Summary:
+### 3.1.5. Summary:
 
 - **Lists**: Use when order matters and you might modify the collection.
 - **Tuples**: Use when order matters but you won't modify the collection.
@@ -1386,10 +1351,10 @@ prime_numbers = {2, 3, 5, 7, 11}
 
 Choosing the appropriate data structure is pivotal for efficient programming. It often comes down to understanding the specific needs of a situation and balancing between data access patterns, memory efficiency, and the desired operations to be performed.
 
-## Big O implications for data structures
+## 3.2. Big O implications for data structures
 Understanding the Big O notation implications of built-in functions and methods for Python's data structures is essential for writing efficient code. Here's a rundown of the time complexity for common operations on Python's primary data structures:
 
-### 1. Lists:
+### 3.2.1. Lists:
 
 - **Access**: `O(1)` - Accessing an element by index is a constant-time operation.
 - **Append**: `O(1)` - Appending an element to the end of the list is typically a constant-time operation, but occasionally, it might be `O(n)` when the list needs to resize.
@@ -1398,14 +1363,14 @@ Understanding the Big O notation implications of built-in functions and methods 
 - **Search (by value)**: `O(n)` - In the worst case, searching requires checking each element.
 - **Sort**: `O(n log n)` - Sorting a list using the built-in `.sort()` method or `sorted()` function.
 
-### 2. Dictionaries (dict):
+### 3.2.2. Dictionaries (dict):
 
 - **Access**: `O(1)` - Accessing a value by its key is typically constant time, but can be `O(n)` in worst-case scenarios (rare hash collisions).
 - **Insert**: `O(1)` - Inserting a key-value pair is usually constant time.
 - **Remove**: `O(1)` - Removing a key-value pair by its key is typically constant time.
 - **Search (by key)**: `O(1)` - Searching for a key is typically constant time.
 
-### 3. Sets:
+### 3.2.3. Sets:
 
 - **Add**: `O(1)` - Adding an element is typically a constant-time operation.
 - **Remove**: `O(1)` - Removing an element is typically constant time.
@@ -1413,14 +1378,14 @@ Understanding the Big O notation implications of built-in functions and methods 
 - **Union**: `O(len(s) + len(t))` - Where `s` and `t` are two sets.
 - **Intersection**: `O(min(len(s), len(t)))` - Where `s` and `t` are two sets.
 
-### 4. Strings:
+### 3.2.4. Strings:
 
 - **Access**: `O(1)` - Accessing a character by index.
 - **Concatenate**: `O(n)` - Joining two strings of length `n`.
 - **Search**: `O(n)` - Searching for a substring or character can be linear in the size of the string.
 - **Slice**: `O(k)` - Where `k` is the size of the slice.
 
-### 5. `array` Module:
+### 3.2.5. `array` Module:
 
 - **Access**: `O(1)` - Accessing an element by index.
 - **Append**: `O(1)` - Appending an element to the end, but occasionally might be `O(n)` when resizing is necessary.
@@ -1428,13 +1393,13 @@ Understanding the Big O notation implications of built-in functions and methods 
 - **Remove**: `O(n)` - Removal can require shifting subsequent elements.
 - **Search (by value)**: `O(n)` - Searching requires checking each element.
 
-### 6. `collections.deque`:
+### 3.2.6. `collections.deque`:
 
 - **Append (to either end)**: `O(1)` - Appending to the left or right end is constant time.
 - **Pop (from either end)**: `O(1)` - Popping from the left or right end is constant time.
 - **Access**: `O(n)` - Accessing an element by index requires linear time.
 
-### 7. `collections.defaultdict`:
+### 3.2.7. `collections.defaultdict`:
 
 Similar to dictionaries (dict), as they inherit from them:
 
@@ -1443,11 +1408,11 @@ Similar to dictionaries (dict), as they inherit from them:
 - **Remove**: `O(1)`
 - **Search (by key)**: `O(1)`
 
-### 8. `collections.Counter`:
+### 3.2.8. `collections.Counter`:
 
 - **Most Common Elements**: `O(n log k)` where n is the number of distinct elements and k is the number of most common elements requested.
   
-### 9. `collections.OrderedDict`:
+### 3.2.9. `collections.OrderedDict`:
 
 Since Python 3.7+, the regular dict preserves insertion order, so the time complexity for `OrderedDict` is the same as for regular dicts:
 
@@ -1456,7 +1421,7 @@ Since Python 3.7+, the regular dict preserves insertion order, so the time compl
 - **Remove**: `O(1)`
 - **Search (by key)**: `O(1)`
 
-### 10. `shelve`:
+### 3.2.10. `shelve`:
 
 The time complexity can vary based on the underlying database mechanism, but for basic operations:
 
@@ -1465,14 +1430,14 @@ The time complexity can vary based on the underlying database mechanism, but for
 - **Remove**: `O(1)`
 - **Search (by key)**: `O(1)`
 
-### 11. `queue`:
+### 3.2.11. `queue`:
 
 - **Enqueue (put)**: `O(1)`
 - **Dequeue (get)**: `O(1)`
 
 Remember, these are average-case complexities, and the actual performance might vary based on the specific data, situation or the machine's architecture, and other conditions. When using these data structures in a performance-critical application, always consider their Big O implications, and if needed, profile your code to ensure it meets the required performance criteria.
 
-## Performance implications of Lists
+## 3.3. Performance implications of Lists
 
 Performance implications in Python, especially concerning data structures, can significantly impact the runtime of a program. Let's consider some common operations and their associated performance considerations.
 
@@ -1510,17 +1475,17 @@ Performance implications in Python, especially concerning data structures, can s
     lst3 = lst1 + lst2  # Creates a new list
     ```
 
-### Performance Tips:
+### 3.3.1. Performance Tips:
 1. **Dynamic Array Resizing**: When a list in Python exceeds its current capacity, it's resized. This involves allocating a new block of memory and copying over the elements. Although the `append()` operation is \(O(1)\) on average, individual operations can be more costly due to resizing. If the final size of the list is known in advance, using `list.reserve(size)` can mitigate the overhead of dynamic resizing.
 
 2. **List Comprehensions**: They're often faster and more memory-efficient than equivalent `for` loop constructions because their iteration is implemented at the C level in CPython.
 
-### Notable performance upgrades
+### 3.3.2. Notable performance upgrades
 - **Over-allocation Strategy**: Lists in Python are implemented as dynamic arrays. Whenever a list grows beyond its current allocated size, it's resized. Python sometimes over-allocates memory to prevent frequent resizings. This over-allocation reduces the amortized cost of appending elements to the list.
 
 - **Time Complexity Guarantees**: The average-case time complexity of list operations (e.g., append, get item, set item) is \(O(1)\). The complexity of other operations (e.g., insert, delete) depends on their position.
 
-## Performance implications of Dictionaries
+## 3.4. Performance implications of Dictionaries
 
 **a) Key Lookup**
 
@@ -1531,7 +1496,7 @@ Performance implications in Python, especially concerning data structures, can s
     val = d["a"]  # Average O(1) operation
     ```
 
-### Hash Collisions in Python Dictionaries
+### 3.4.1. Hash Collisions in Python Dictionaries
 
 A hash collision occurs when two different keys produce the same hash value using a hash function. Since dictionaries in Python use hash values to quickly locate keys in memory, having multiple keys with the same hash value could be problematic.
 
@@ -1565,14 +1530,14 @@ Python dictionaries use a technique called **open addressing** to handle hash co
 
 - While collisions introduce a small performance overhead, Python's strategy for managing them ensures that dictionaries remain one of the most efficient and powerful data structures in the language.
 
-### Notable performance upgrades
+### 3.4.2. Notable performance upgrades
 - **Compact Dictionary**: Introduced in Python 3.6, dictionaries were redesigned to use a more compact representation. The new design reduces memory usage by 20-25% and also makes some dictionary operations faster.
 
 - **Preserved Insertion Order**: As a side effect of the compact dictionary redesign, dictionaries now maintain the insertion order. This became an official language guarantee in Python 3.7.
 
 - **Key Sharing**: Shared key storage for instances is an optimization where class instances (when used as dictionary objects) share the part of their memory layout that stores keys, resulting in significant memory savings.
 
-## Performance implications of Sets
+## 3.5. Performance implications of Sets
 
 **a) Add vs. Update**
 
@@ -1591,14 +1556,14 @@ Python dictionaries use a technique called **open addressing** to handle hash co
     s1.update(s2)  # O(k) where k is the size of s2
     ```
 
-### Performance Tips:
+### 3.5.1. Performance Tips:
 
 1. **Sets for Membership Tests**: If you need to repeatedly check if an item is in a collection, using a set (which has \(O(1)\) membership testing on average) can be much faster than using a list (which has \(O(n)\) membership testing).
 
-### Notable performance upgrades
+### 3.5.2. Notable performance upgrades
 - **Implementation Similarity with Dictionaries**: Sets in Python are implemented similarly to dictionaries but only store keys (and not their associated values). Thus, many of the dictionary optimizations apply to sets as well.
 
-### General Optimizations:
+### 3.5.3. General Optimizations:
 - **Fast-path for Small Integers**: Python caches small integers (typically from -5 to 256) for quick access. When you're working with these numbers in lists, sets, or dictionaries, Python reuses the cached integers, making certain operations faster.
 
 - **Freelists**: Data structures like lists and dictionaries maintain a freelist, a list of preallocated, unused entries. When an entry is deleted, it's added to the freelist rather than being immediately deallocated. This optimizes scenarios where entries are frequently added and removed.
@@ -1606,7 +1571,7 @@ Python dictionaries use a technique called **open addressing** to handle hash co
 - **String Interning**: Some strings, especially identifiers in your programs, are "interned" or cached for faster comparison and look-up. This particularly benefits dictionary key look-ups when string keys are involved.
 
 
-## Suggestions for Developers:
+## 3.6. Suggestions for Developers:
 
 1. **Understand Data Structure Semantics**: Before choosing a data structure, understand its semantics and performance characteristics. For example, accessing an element in a list by index is \(O(1)\), but searching for an element in a list is \(O(n)\).
 
@@ -1616,7 +1581,7 @@ Python dictionaries use a technique called **open addressing** to handle hash co
 
 4. **Use Namedtuples for Readable Code**: If you have a small data structure that doesn't need to be mutable, `collections.namedtuple` can be a great choice. It's more memory-efficient than a regular class and makes the code more readable by giving names to the tuple fields.
 
-### Lists:
+### 3.6.1. Lists:
 
 1. **Beware of Large Lists**: Inserting or deleting elements in the middle of large lists can be slow, as it requires shifting elements. Or if you need to simulate a stack and require frequent push and pop operations at the beginning of the list, consider using `collections.deque` for better performance.
 
@@ -1626,7 +1591,7 @@ Python dictionaries use a technique called **open addressing** to handle hash co
 
 4. **Set for Membership Tests**: If you're testing membership frequently (i.e., checking if an element is in a collection), using a set is much more efficient than a list, especially for large collections.
 
-### Dictionaries:
+### 3.6.2. Dictionaries:
 
 1. **Immutable Keys**: Using immutable types (e.g., strings, tuples) as dictionary keys is faster due to optimized hashing of these types.
 
@@ -1634,11 +1599,11 @@ Python dictionaries use a technique called **open addressing** to handle hash co
 
 3. **Use `collections.defaultdict`**: If you're building a dictionary where you'll be accumulating values (like lists or sets) for each key, `collections.defaultdict` can simplify your code and make it more readable.
 
-### Sets:
+### 3.6.3. Sets:
 
 1. **Bulk Operations**: Use set operations like union (`|`), intersection (`&`), difference (`-`), and symmetric difference (`^`) for efficient bulk operations rather than iterating manually.
 
-### Key Priciples of Optimizing:
+### 3.6.4. Key Priciples of Optimizing:
 
 1. **Prioritize Readability**: Even though optimizations are valuable, always prioritize writing clear and readable code. A slight performance boost often isn't worth the cost of making your code significantly harder to understand or maintain.
 
@@ -1649,13 +1614,13 @@ Python dictionaries use a technique called **open addressing** to handle hash co
 4.  **Read This Chapter Again** When you finish the book read this chapter again. Also there will be more on performance in later chapters.
 
 
-# Differences in Operators
+# 4. Differences in Operators
 
-## Mathematical, comparison, assignment, and logical operators in both languages
+## 4.1. Mathematical, comparison, assignment, and logical operators in both languages
 
 Both Perl and Python provide a suite of operators to facilitate mathematical operations, comparisons, assignments, and logical evaluations. Here's a comparative breakdown:
 
-### 1. Mathematical Operators:
+### 4.1.1. Mathematical Operators:
 
 | Operation   | Python   | Perl    |
 |-------------|----------|---------|
@@ -1669,7 +1634,7 @@ Both Perl and Python provide a suite of operators to facilitate mathematical ope
 
 **Note**: Perl uses the `int` function to achieve the result of Python's floor division.
 
-### 2. Comparison Operators:
+### 4.1.2. Comparison Operators:
 
 | Operation              | Python   | Perl     |
 |------------------------|----------|----------|
@@ -1682,7 +1647,7 @@ Both Perl and Python provide a suite of operators to facilitate mathematical ope
 
 **Note**: Perl differentiates between numeric and string comparisons with separate operators, while Python determines the type of comparison based on the operands' type.
 
-### 3. Assignment Operators:
+### 4.1.3. Assignment Operators:
 
 | Operation              | Python  | Perl    |
 |------------------------|---------|---------|
@@ -1696,7 +1661,7 @@ Both Perl and Python provide a suite of operators to facilitate mathematical ope
 
 **Note**: All the assigment operators are same in both languages.
 
-### 4. Logical Operators:
+### 4.1.4. Logical Operators:
 
 | Operation              | Python  | Perl        |
 |------------------------|---------|-------------|
@@ -1709,11 +1674,11 @@ Both Perl and Python provide a suite of operators to facilitate mathematical ope
 
 In summary, while the basic operators in both languages might seem similar, the nuances, especially in string vs. numeric comparisons in Perl and precedence rules, can be tricky for developers transitioning from one language to the other. It's essential to be wary of these subtle differences.
 
-## The . operator for string concatenation in PERL vs. + in Python
+## 4.2. The . operator for string concatenation in PERL vs. + in Python
 
 Both Perl and Python have straightforward methods to concatenate strings, but they use different operators. Here's a comparison:
 
-### Perl: `. Operator`
+### 4.2.1. Perl: `. Operator`
 
 In Perl, the dot (`.`) operator is used for string concatenation. 
 
@@ -1731,7 +1696,7 @@ If you want to concatenate and assign to one of the operands, Perl provides the 
 $string1 .= $string2; # $string1 now contains "Hello, World!"
 ```
 
-### Python: `+ Operator`
+### 4.2.2. Python: `+ Operator`
 
 In Python, the plus (`+`) operator, which is typically used for addition in most languages, is overloaded for string concatenation.
 
@@ -1749,7 +1714,7 @@ For concatenating and assigning to one of the operands, Python uses `+=`:
 string1 += string2  # string1 now contains "Hello, World!"
 ```
 
-### Comparison:
+### 4.2.3. Comparison:
 
 1. **Intuitiveness**: For developers coming from a math-centric or most other programming backgrounds, using `+` for concatenation in Python may initially feel more intuitive since it represents the action of "adding" two strings. However, if you're from a Perl background (or PHP), the `.` operator makes equal sense.
 
@@ -1759,11 +1724,11 @@ string1 += string2  # string1 now contains "Hello, World!"
 
 4. **Assignment & Concatenation**: Both languages provide a shorthand to concatenate and assign (`+=` in Python and `.=` in Perl).
 
-## Formating Strings with `printf`
+## 4.3. Formating Strings with `printf`
 
 Both Perl and Python offer string formatting functionalities which can be compared to the `printf` or `sprintf` functions in C. Let's explore their capabilities and demonstrate them with your specific example.
 
-### Perl: `sprintf`
+### 4.3.1. Perl: `sprintf`
 
 In Perl, `sprintf` is used to format strings, very similar to its behavior in C.
 
@@ -1774,7 +1739,7 @@ my $formatted_string = sprintf("%.2f", $float_number);
 print $formatted_string;  # Outputs: 123.46
 ```
 
-### Python: `format`
+### 4.3.2. Python: `format`
 
 In Python, several methods can achieve the same goal. One common way is to use the `format` method on strings:
 
@@ -1785,7 +1750,7 @@ formatted_string = "{:.2f}".format(float_number)
 print(formatted_string)  # Outputs: 123.46
 ```
 
-### Python: f-strings (Python 3.6+)
+### 4.3.3. Python: f-strings (Python 3.6+)
 
 Starting from Python 3.6, f-strings offer a more concise way to embed expressions inside string literals:
 
@@ -1796,36 +1761,36 @@ formatted_string = f"{float_number:.2f}"
 print(formatted_string)  # Outputs: 123.46
 ```
 
-### Summary:
+### 4.3.4. Summary:
 
 Both Perl's `sprintf` and Python's string formatting methods provide robust ways to format strings. Python has evolved its string formatting techniques over versions, with f-strings being the latest and arguably the most concise and readable method. When transitioning from Perl to Python, developers might initially find the `format` method or f-strings a bit unfamiliar, but they offer powerful capabilities that become intuitive with use.
 
-## Bitwise operators
+## 4.4. Bitwise operators
 
 Bitwise operators are used for performing operations on numbers at the binary level. Both Perl and Python support a set of bitwise operators, and while their functionalities are similar, there are subtle nuances in usage. Let's break them down:
 
-### 1. Bitwise AND:
+### 4.4.1. Bitwise AND:
 
 | Language | Operator | Example                    | Result (in binary) |
 |----------|----------|----------------------------|--------------------|
 | Python   | `&`      | `5 & 3`                    | `101 & 011 = 001` |
 | Perl     | `&`      | `$result = 5 & 3;`         | `101 & 011 = 001` |
 
-### 2. Bitwise OR:
+### 4.4.2. Bitwise OR:
 
 | Language | Operator | Example                    | Result (in binary) |
 |----------|----------|----------------------------|--------------------|
 | Python   | `|`      | <code>`3 &#124; 5`</code>  | <code>`101 &#124; 011 = 111`</code> |
 | Perl     | `|`      | <code>`$result = 5 &#124; 3;`</code> | <code>`101 &#124; 011 = 111`</code> |
 
-### 3. Bitwise XOR (Exclusive OR):
+### 4.4.3. Bitwise XOR (Exclusive OR):
 
 | Language | Operator | Example                    | Result (in binary) |
 |----------|----------|----------------------------|--------------------|
 | Python   | `^`      | `5 ^ 3`                    | `101 ^ 011 = 110` |
 | Perl     | `^`      | `$result = 5 ^ 3;`         | `101 ^ 011 = 110` |
 
-### 4. Bitwise NOT:
+### 4.4.4. Bitwise NOT:
 
 This operator inverts all the bits.
 
@@ -1836,7 +1801,7 @@ This operator inverts all the bits.
 
 **Note**: The result for NOT may vary based on how negative numbers are represented in memory (usually as two's complement), so the binary representation above is a simplification.
 
-### 5. Left Shift:
+### 4.4.5. Left Shift:
 
 Shifts the bits of the number to the left by specified positions, filling in zeros on the right.
 
@@ -1845,7 +1810,7 @@ Shifts the bits of the number to the left by specified positions, filling in zer
 | Python   | `<<`     | `5 << 1`                   | `101 << 1 = 1010` |
 | Perl     | `<<`     | `$result = 5 << 1;`        | `101 << 1 = 1010` |
 
-### 6. Right Shift:
+### 4.4.6. Right Shift:
 
 Shifts the bits of the number to the right by specified positions.
 
@@ -1854,7 +1819,7 @@ Shifts the bits of the number to the right by specified positions.
 | Python   | `>>`     | `5 >> 1`                   | `101 >> 1 = 10`   |
 | Perl     | `>>`     | `$result = 5 >> 1;`        | `101 >> 1 = 10`   |
 
-### Comparison:
+### 4.4.7. Comparison:
 
 The bitwise operators themselves are quite similar between Perl and Python. However, there are a few aspects to consider:
 
@@ -1862,11 +1827,11 @@ The bitwise operators themselves are quite similar between Perl and Python. Howe
 
 2. **Integer Representation**: Since bitwise operations work at the binary level, the representation of integers (like two's complement for negative numbers) can affect the results, especially for the NOT operator.
 
-## The use of == and is in Python
+## 4.5. The use of == and is in Python
 
 In Python, both `==` and `is` are comparison operators, but they serve different purposes.
 
-### `==`: Value Equality
+### 4.5.1. `==`: Value Equality
 - **Function**: It checks if the values of two objects are the same. It does not concern itself with the identity of the objects.
   
 - **Example**:
@@ -1877,7 +1842,7 @@ In Python, both `==` and `is` are comparison operators, but they serve different
   print(list1 == list2)  # True, because the lists have the same content.
   ```
 
-### `is`: Identity Comparison
+### 4.5.2. `is`: Identity Comparison
 - **Function**: It checks if two references or variables refer to the exact same object in memory (i.e., they have the same identity).
 
 - **Example**:
@@ -1888,7 +1853,7 @@ In Python, both `==` and `is` are comparison operators, but they serve different
   print(list1 is list2)  # True, because both variables reference the same object in memory.
   ```
 
-### Points to Note:
+### 4.5.3. Points to Note:
 1. **Integers and Interning**: For certain small integers (typically between -5 to 256, due to Python's memory optimization), using `is` can sometimes return `True` even if they were defined separately. This is because Python caches and reuses these integer objects.
    ```python
    a = 5
@@ -1909,17 +1874,17 @@ In Python, both `==` and `is` are comparison operators, but they serve different
    print(x is None)  # This is the recommended way to check for None in Python.
    ```
 
-### Conclusion:
+### 4.5.4. Conclusion:
 While `==` and `is` can sometimes produce the same result for certain types of data due to Python's optimization strategies, they serve different purposes and should be used appropriately. Always use `==` for value comparison and `is` for identity checks.
 
 
-# Control Structures
+# 5. Control Structures
 
-## Conditional structures (if, else, elif)
+## 5.1. Conditional structures (if, else, elif)
 
 Both Perl and Python provide conditional structures that allow for branching based on evaluated conditions. Let's explore their syntax and usage in both languages.
 
-### Perl: Conditional Structures
+### 5.1.1. Perl: Conditional Structures
 
 #### 1. **if**:
 ```perl
@@ -1951,7 +1916,7 @@ if ($condition1) {
 #### Note: 
 In Perl, the condition does not require parentheses `()` around it, but they're commonly used for clarity.
 
-### Python: Conditional Structures
+### 5.1.2. Python: Conditional Structures
 
 #### 1. **if**:
 ```python
@@ -1980,7 +1945,7 @@ else:
 #### Note: 
 In Python, the colon `:` is crucial and indentation is used instead of braces `{}` for block delineation.
 
-### Comparison:
+### 5.1.3. Comparison:
 
 - **Syntax**: 
   - Perl uses braces `{}` to define code blocks, whereas Python uses indentation.
@@ -1992,7 +1957,7 @@ In Python, the colon `:` is crucial and indentation is used instead of braces `{
 - **Parentheses**: 
   - In Perl, parentheses `()` around conditions are optional but commonly used. In Python, they're not typical unless they clarify compound conditions.
 
-### Truthiness
+### 5.1.4. Truthiness
 
 #### Table Comparison of Truthiness
 
@@ -2024,13 +1989,13 @@ In Python, references (or, more correctly, variables) point to objects. The trut
 - If a variable points to an empty list or dictionary, it will be falsy.
 - If a variable points to a non-empty list or dictionary, it will be truthy.
 
-## Loop structures: for and while loops
+## 5.2. Loop structures: for and while loops
 
 Loop structures are fundamental in almost every programming language, allowing for repeated execution of blocks of code. Both Perl and Python offer `for` and `while` loops, but their behavior and syntax differ.
 
-## 1. `for` Loops:
+## 5.3. `for` Loops:
 
-### Perl:
+### 5.3.1. Perl:
 - **List-based `for` loop**:
   ```perl
   for my $item (@array) {
@@ -2045,7 +2010,7 @@ Loop structures are fundamental in almost every programming language, allowing f
   }
   ```
 
-### Python:
+### 5.3.2. Python:
 - **List-based `for` loop**:
   ```python
   for item in list:
@@ -2062,16 +2027,16 @@ Loop structures are fundamental in almost every programming language, allowing f
 - In Perl, the `..` operator is used to create a range, whereas in Python, the `range()` function is used.
 - In Perl, the variable (`$item` or `$i` in the above examples) does not retain its value outside the loop, unless it was previously declared. In Python, the loop variable retains its value outside the loop.
 
-## 2. `while` Loops:
+## 5.4. `while` Loops:
 
-### Perl:
+### 5.4.1. Perl:
 ```perl
 while ($condition) {
     # code to be executed
 }
 ```
 
-### Python:
+### 5.4.2. Python:
 ```python
 while condition:
     # code to be executed
@@ -2082,7 +2047,7 @@ while condition:
 - One common use of the `while` loop is to iterate over file lines or other input streams.
 - The syntax is very similar in both languages, with key differences being in block delineation: Perl uses curly braces `{}`, while Python uses indentation.
 
-### Other Loop-related Nuances:
+### 5.4.3. Other Loop-related Nuances:
 
 - **Loop Control Statements**:
   - **last/next in Perl** vs. **break/continue in Python**: In Perl, you use `last` to break out of a loop and `next` to skip the rest of the current iteration. In Python, you'd use `break` and `continue`, respectively.
@@ -2139,13 +2104,13 @@ while condition:
     ```
 
 
-# Functions and Subroutines
+# 6. Functions and Subroutines
 
-## Defining and calling subroutines in PERL vs. functions in Python
+## 6.1. Defining and calling subroutines in PERL vs. functions in Python
 
 Both Python and Perl allow for defining reusable blocks of code in the form of functions (in Python) and subroutines (in Perl). Let's look at the differences and similarities in their definitions, call syntax, and behaviors.
 
-### Defining and Calling:
+### 6.1.1. Defining and Calling:
 - **Perl**: 
   - Define a subroutine with the `sub` keyword.
     ```perl
@@ -2169,7 +2134,7 @@ Both Python and Perl allow for defining reusable blocks of code in the form of f
     result = function_name(args)
     ```
 
-### Parameters and Arguments:
+### 6.1.2. Parameters and Arguments:
 - **Perl**:
   - Positional parameters are available through the special array `@_`:
     ```perl
@@ -2200,7 +2165,7 @@ Both Python and Perl allow for defining reusable blocks of code in the form of f
             print(arg)
     ```
 
-### Returning Values:
+### 6.1.3. Returning Values:
 - **Perl**: 
   - Return values using the `return` keyword.
     ```perl
@@ -2232,7 +2197,7 @@ Both Python and Perl allow for defining reusable blocks of code in the form of f
     print(values)  # This will print the tuple
     ```
 
-### Context in Perl:
+### 6.1.4. Context in Perl:
 - Perl subroutines can be aware of the context in which they're called (scalar vs. list) using `wantarray` and can adapt their behavior and return value accordingly:
   ```perl
   sub context_demo {
@@ -2245,11 +2210,11 @@ Both Python and Perl allow for defining reusable blocks of code in the form of f
 
 While the general idea of functions and subroutines in Python and Perl is similar, there are nuances in their behavior, parameter handling, and context understanding. When transitioning from Perl to Python (or vice versa), it's essential to keep these differences in mind
 
-## Argument passing by value vs. reference
+## 6.2. Argument passing by value vs. reference
 
 In both Perl and Python, the way arguments are passed to functions/subroutines depends on what those arguments are and how they are handled. Here's a comparative analysis:
 
-### Perl
+### 6.2.1. Perl
 
 1. **By Value**:
    - By default, arguments are passed to Perl subroutines by value. This means the subroutine receives a copy of the arguments, not a reference to the original variables.
@@ -2277,7 +2242,7 @@ In both Perl and Python, the way arguments are passed to functions/subroutines d
    print $x;  # This will print 100.
    ```
 
-### Python
+### 6.2.2. Python
 
 1. **Immutable Data Types (Pass by Value)**:
    - Immutable data types like integers, floats, strings, and tuples are passed by value, i.e., a copy is passed.
@@ -2319,11 +2284,11 @@ It's crucial to note that while it seems like Python passes mutable data types b
 
 In essence, while the distinction between pass-by-value and pass-by-reference in Perl is clear and explicit (using references for the latter), Python's behavior is consistent—it always passes the reference by value—but the effect you see depends on the mutability of the object being referenced.
 
-## Anonymous subroutines in PERL vs. lambda functions in Python
+## 6.3. Anonymous subroutines in PERL vs. lambda functions in Python
 
 Anonymous subroutines and lambda functions serve similar purposes in Perl and Python, respectively: they allow you to define unnamed, inline functions for quick, simple operations. Let's delve into their similarities and differences:
 
-### Anonymous Subroutines in Perl:
+### 6.3.1. Anonymous Subroutines in Perl:
 
 **Definition**: In Perl, you can create a subroutine without giving it a name. This is termed an anonymous subroutine.
 
@@ -2348,7 +2313,7 @@ my $squared = sub {
 print $squared->(4);  # Outputs: 16
 ```
 
-### Lambda Functions in Python:
+### 6.3.2. Lambda Functions in Python:
 
 **Definition**: Python's `lambda` function allows you to create small, unnamed functions, typically for short, simple operations.
 
@@ -2368,7 +2333,7 @@ squared = lambda x: x * x
 print(squared(4))  # Outputs: 16
 ```
 
-### Key Differences:
+### 6.3.3. Key Differences:
 
 1. **Complexity**: 
    - Perl's anonymous subroutines can contain multiple lines and are more versatile than Python's lambda functions.
@@ -2387,7 +2352,7 @@ print(squared(4))  # Outputs: 16
 
 Overall, while both Perl's anonymous subroutines and Python's lambda functions offer a way to define inline, unnamed functions, Perl's version is more flexible in terms of the complexity it can handle. On the other hand, Python's lambda functions are designed for brevity and simple tasks.
 
-## Tables of functions
+## 6.4. Tables of functions
 
 Python allows you to store standard funcions in data structures, for example Python allows you to create a dictionary where keys map to functions, including lambda functions (which are analogous to Perl's anonymous subroutines defined in hash map). You can then call them based on a parameter used as a key to the dictionary. You don't even need to use `eval`, as you might in Perl, because Python dictionaries provide direct access to the functions they store.
 
