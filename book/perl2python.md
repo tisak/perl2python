@@ -152,7 +152,95 @@ Dive into each module to uncover the intricacies and nuances of transitioning yo
     - [6.3.2. Lambda Functions in Python:](#632-lambda-functions-in-python)
     - [6.3.3. Key Differences:](#633-key-differences)
   - [6.4. Tables of functions](#64-tables-of-functions)
-
+- [7. Modules and Libraries](#7-modules-and-libraries)
+  - [7.1. Importing modules in Python with import](#71-importing-modules-in-python-with-import)
+    - [7.1.1. Basic Import](#711-basic-import)
+    - [7.1.2. Importing with Aliasing](#712-importing-with-aliasing)
+    - [7.1.3. Importing Specific Names](#713-importing-specific-names)
+    - [7.1.4. Import All Names](#714-import-all-names)
+    - [7.1.5. Nested Modules](#715-nested-modules)
+    - [7.1.6. Important Notes:](#716-important-notes)
+  - [7.2. Differences between PERL CPAN and Python's PyPI](#72-differences-between-perl-cpan-and-pythons-pypi)
+    - [7.2.1. **Purpose \& Overview**](#721-purpose--overview)
+    - [7.2.2. **Submission \& Maintenance**](#722-submission--maintenance)
+    - [7.2.3. **Tools \& Utilities**](#723-tools--utilities)
+    - [7.2.4. **Documentation**](#724-documentation)
+    - [7.2.5. **Versioning \& Dependencies**](#725-versioning--dependencies)
+    - [7.2.6. **Community \& Support**](#726-community--support)
+  - [7.3. Common libraries and their PERL counterparts](#73-common-libraries-and-their-perl-counterparts)
+- [8. File Handling](#8-file-handling)
+  - [8.1. Reading and writing to files](#81-reading-and-writing-to-files)
+    - [8.1.1. Perl](#811-perl)
+    - [8.1.2. Python](#812-python)
+  - [8.2. File modes and differences between binary and text modes](#82-file-modes-and-differences-between-binary-and-text-modes)
+    - [8.2.1. File Modes:](#821-file-modes)
+    - [8.2.2. Perl:](#822-perl)
+    - [8.2.3. Python:](#823-python)
+    - [8.2.4. Differences between Binary and Text Modes:](#824-differences-between-binary-and-text-modes)
+  - [8.3. Handling file paths using `os` module in Python](#83-handling-file-paths-using-os-module-in-python)
+  - [8.4. Handling file paths using `pathlib` module in Python](#84-handling-file-paths-using-pathlib-module-in-python)
+    - [8.4.1. Importing the Module](#841-importing-the-module)
+    - [8.4.2. Creating a Path](#842-creating-a-path)
+    - [8.4.3. Joining Paths](#843-joining-paths)
+    - [8.4.4. Reading \& Writing Files](#844-reading--writing-files)
+    - [8.4.5. Checking Existence, Type, etc.](#845-checking-existence-type-etc)
+    - [8.4.6. File Properties](#846-file-properties)
+    - [8.4.7. Iterating Over Directory Contents](#847-iterating-over-directory-contents)
+    - [8.4.8. Searching for Files with Globbing](#848-searching-for-files-with-globbing)
+    - [8.4.9. Create and Remove Directories](#849-create-and-remove-directories)
+    - [8.4.10. Absolute Path](#8410-absolute-path)
+    - [8.4.11. Convert to String](#8411-convert-to-string)
+    - [8.4.12. Comparison to `os.path`](#8412-comparison-to-ospath)
+- [9. Regular Expressions](#9-regular-expressions)
+  - [9.1. PERL's built-in regex capabilities vs. Python's re module](#91-perls-built-in-regex-capabilities-vs-pythons-re-module)
+    - [9.1.1. Basic Syntax:](#911-basic-syntax)
+    - [9.1.2. Match and Capture:](#912-match-and-capture)
+    - [9.1.3. Global Matching:](#913-global-matching)
+    - [9.1.4. Substitution:](#914-substitution)
+    - [9.1.5. Modifiers:](#915-modifiers)
+    - [9.1.6. Compilation for Efficiency:](#916-compilation-for-efficiency)
+    - [9.1.7. Verbose Mode:](#917-verbose-mode)
+    - [9.1.8. Multiline Mode:](#918-multiline-mode)
+    - [9.1.9. Search for variables](#919-search-for-variables)
+    - [9.1.10. Final Thoughts:](#9110-final-thoughts)
+  - [9.2. Differences in syntax and capabilities](#92-differences-in-syntax-and-capabilities)
+  - [9.3. **1. Delimiters:**](#93-1-delimiters)
+  - [9.4. **2. Flags/Modifiers:**](#94-2-flagsmodifiers)
+  - [9.5. **3. Named Capture Groups:**](#95-3-named-capture-groups)
+  - [9.6. **4. Non-capturing Groups:**](#96-4-non-capturing-groups)
+  - [9.7. **5. Lookaheads and Lookbehinds:**](#97-5-lookaheads-and-lookbehinds)
+  - [9.8. **6. Compilation for Repeated Use:**](#98-6-compilation-for-repeated-use)
+  - [9.9. **7. Global Matching:**](#99-7-global-matching)
+  - [9.10. **8. Verbose Mode for Readability:**](#910-8-verbose-mode-for-readability)
+  - [9.11. **9. String Interpolation:**](#911-9-string-interpolation)
+  - [9.12. **10. Unicode Handling:**](#912-10-unicode-handling)
+  - [9.13. **Conclusion:**](#913-conclusion)
+  - [9.14. Performace regular expressions of perl vs. python](#914-performace-regular-expressions-of-perl-vs-python)
+- [10. Object-Oriented Programming](#10-object-oriented-programming)
+  - [10.1. Class definition, inheritance, encapsulation, and polymorphism in Python](#101-class-definition-inheritance-encapsulation-and-polymorphism-in-python)
+    - [10.1.1. Class Definition:](#1011-class-definition)
+    - [10.1.2. Inheritance:](#1012-inheritance)
+    - [10.1.3. Encapsulation:](#1013-encapsulation)
+    - [10.1.4. Polymorphism:](#1014-polymorphism)
+  - [10.2. Comparing OO in PERL and Python](#102-comparing-oo-in-perl-and-python)
+    - [10.2.1. Class Definition:](#1021-class-definition)
+    - [10.2.2. Inheritance:](#1022-inheritance)
+    - [10.2.3. Encapsulation:](#1023-encapsulation)
+    - [10.2.4. Polymorphism:](#1024-polymorphism)
+    - [10.2.5. Object Instantiation:](#1025-object-instantiation)
+    - [10.2.6. Attributes \& Methods:](#1026-attributes--methods)
+    - [10.2.7. Conclusion:](#1027-conclusion)
+- [11. Exception Handling](#11-exception-handling)
+  - [11.1. Eval and die in PERL vs. try, except, finally in Python](#111-eval-and-die-in-perl-vs-try-except-finally-in-python)
+    - [11.1.1. Perl: `eval` and `die`](#1111-perl-eval-and-die)
+    - [11.1.2. Python: `try`, `except`, `finally`](#1112-python-try-except-finally)
+    - [11.1.3. Key Differences:](#1113-key-differences)
+  - [11.2. Custom exception classes in Python](#112-custom-exception-classes-in-python)
+    - [11.2.1. Defining a Custom Exception](#1121-defining-a-custom-exception)
+    - [11.2.2. Raising and Handling the Custom Exception](#1122-raising-and-handling-the-custom-exception)
+    - [11.2.3. Adding Custom Attributes and Methods to an Exception Class](#1123-adding-custom-attributes-and-methods-to-an-exception-class)
+  - [11.3. Perl `longmess` vs. `traceback` in Python](#113-perl-longmess-vs-traceback-in-python)
+- [12. Miscellaneous](#12-miscellaneous)
 
 ---
 
@@ -2391,7 +2479,1084 @@ This pattern can be very powerful in Python for creating lookup tables of functi
 
 
 
+# 7. Modules and Libraries
+## 7.1. Importing modules in Python with import
 
+In Python, modules are .py files that consist of Python code. A Python module can define functions, classes, and variables, and can also include runnable code. The `import` statement allows you to use the content of one module inside another.
 
+Here's how importing works:
 
+### 7.1.1. Basic Import
 
+To import a module, use the `import` statement followed by the module name.
+
+```python
+import math
+print(math.sqrt(16))  # Output: 4.0
+```
+
+### 7.1.2. Importing with Aliasing
+
+If you want to give the module a different name when imported, use the `as` keyword.
+
+```python
+import math as m
+print(m.sqrt(16))  # Output: 4.0
+```
+
+### 7.1.3. Importing Specific Names
+
+You can import specific names from a module without importing the module as a whole.
+
+```python
+from math import sqrt
+print(sqrt(16))  # Output: 4.0
+```
+
+### 7.1.4. Import All Names
+
+You can import all names (functions, variables) from a module using the `*` wildcard. However, this is generally discouraged because it can cause confusion with variable names and can clutter the namespace.
+
+```python
+from math import *
+print(sqrt(16))  # Output: 4.0
+```
+
+### 7.1.5. Nested Modules
+
+For packages (a way of bundling multiple modules together), you might have nested modules. They can be imported using the dot notation.
+
+```python
+import package_name.module_name
+```
+
+### 7.1.6. Important Notes:
+
+- **Module Search Path**: When you import a module, Python searches for that module in a list of directories which is stored in `sys.path`. The search begins in the current directory. If Python cannot find the module there, it continues the search in the directories listed in the PYTHONPATH environment variable, and finally checks the standard library directories. If the module is not found, Python raises a `ModuleNotFoundError`.
+  
+- **Reloading a Module**: By default, Python imports a module only once during a session. If you've made changes to the module and need to reload it, you'll have to use the `importlib.reload()` method.
+
+- **Circular Imports**: Circular imports occur when two modules depend on each other. This can cause problems, especially when using the `from module import ...` syntax. Solutions include using `import module` instead, or moving the `import` statement to the end of the module, or using `import` inside a function or method where it's needed.
+
+## 7.2. Differences between PERL CPAN and Python's PyPI
+Both CPAN (Comprehensive Perl Archive Network) and PyPI (Python Package Index) are repositories for their respective languages, housing vast collections of packages/modules contributed by the community. While they serve similar primary purposes, they have notable differences:
+
+### 7.2.1. **Purpose & Overview**
+
+- **CPAN (Perl)**:
+  - Central repository for Perl modules.
+  - One of Perl's standout features, offering a vast array of libraries and tools.
+  - Used in conjunction with tools like `cpan` or `cpanm` (CPAN Minus) for installation.
+
+- **PyPI (Python)**:
+  - Repository for Python packages.
+  - Packages can be anything from simple modules to complex applications.
+  - Primarily interfaced through the `pip` tool for installation.
+
+### 7.2.2. **Submission & Maintenance**
+
+- **CPAN**:
+  - Requires a PAUSE (Perl Authors Upload SErvice) account for authors to upload their modules.
+  - Once uploaded, a module's namespace is reserved for the author.
+  - Has a more formal review process with testers in various platforms ensuring that the module works across different environments.
+
+- **PyPI**:
+  - Anyone with an account can upload a package, making it somewhat easier to get started.
+  - Provides a way to claim project names, but with lesser namespace restrictions.
+  - Doesn't have the same formal testing process as CPAN, so the responsibility falls more on the author or community to ensure cross-platform compatibility.
+
+### 7.2.3. **Tools & Utilities**
+
+- **CPAN**:
+  - Often used with tools like `cpan`, `cpanm`, or `local::lib`.
+  - `cpan` provides an interactive shell in addition to package management capabilities.
+  
+- **PyPI**:
+  - Used in conjunction with `pip` for installing packages.
+  - Provides easy access to package dependencies, versions, and virtual environments using `virtualenv`.
+
+### 7.2.4. **Documentation**
+
+- **CPAN**:
+  - Modules typically come with their documentation in POD (Plain Old Documentation) format.
+  - Websites like [metacpan.org](https://metacpan.org/) provide a web interface to browse and search module documentation.
+
+- **PyPI**:
+  - Packages typically have documentation included, though the format might vary.
+  - Some packages use Read the Docs or other services for hosting documentation.
+
+### 7.2.5. **Versioning & Dependencies**
+
+- **CPAN**:
+  - Dependency resolution is more manual and can sometimes be tricky.
+  - Modules might not follow a consistent versioning scheme.
+  
+- **PyPI**:
+  - `pip` automatically resolves and installs package dependencies.
+  - Uses Semantic Versioning, providing clarity on breaking changes, features, and patches.
+
+### 7.2.6. **Community & Support**
+
+- **CPAN**:
+  - Backed by a strong community of Perl developers.
+  - Has been around for a long time, offering a plethora of modules for various tasks.
+  
+- **PyPI**:
+  - Given Python's surge in popularity, especially in fields like data science and web development, PyPI has seen rapid growth.
+  - Offers a vast collection of modern packages, particularly in areas like machine learning.
+
+In summary, while CPAN and PyPI serve as the primary package repositories for Perl and Python respectively, they have differences in their operations, submission processes, tools, and community support. Regardless, both remain vital assets for developers in their respective ecosystems.
+
+## 7.3. Common libraries and their PERL counterparts
+Certainly, here's a list of some popular Perl libraries and their counterparts in Python:
+
+| **Perl Library**              | **Purpose**                                        | **Python Counterpart**  | **Purpose**                                       |
+|-------------------------------|----------------------------------------------------|-------------------------|---------------------------------------------------|
+| `LWP::UserAgent`              | HTTP client for making requests                    | `requests`              | A user-friendly HTTP client for making requests   |
+| `HTML::TreeBuilder`           | Parse HTML content                                 | `BeautifulSoup`         | HTML/XML parser, used for web scraping            |
+| `PDL` (Perl Data Language)    | Advanced array operations and numerical computations | `NumPy`               | Numeric computations and array handling           |
+| `Mojolicious`, `Catalist`     | Web framework                                      | `Flask`, `Django`       | Lightweight to full-stack web frameworks          |
+| `DBI`, `DBIx`                 | Database Interface                                 | `sqlite3`, `SQLAlchemy` | Database interfaces                               |
+| `Regexp::Common`              | Advanced regular expressions functionality         | `re`                   | Regular expressions                               |
+| `File::Spec`, `File::Path`    | Operations related to file paths and directories   | `os.path`               | Interfacing with the operating system paths       |
+| `Test::Simple`, `Test::More`  | Unit testing frameworks                            | `unittest`              | Unit testing framework                            |
+| `Getopt::Long`                | Processing of command line options                 | `argparse`              | Parser for command-line options                   |
+| `Spreadsheet::ParseExcel`     | Read Excel files                                   | `openpyxl`, `xlrd`      | Read/write Excel files                            |
+| `JSON`, `JSON::XS`            | Working with JSON data                             | `json`                  | JSON encoder and decoder                          |
+| `Text::CSV`                   | Parsing CSV strings and data structures            | `csv`                   | Work with CSV files                               |
+| `MIME::Lite`                  | Sending emails                                     | `smtplib`               | SMTP protocol client (used to send emails)        |
+
+Remember, while these libraries may have similar purposes, their implementations, features, and ease of use can vary significantly. Depending on the context, you might find one library more suitable than its counterpart in the other language.
+
+# 8. File Handling
+## 8.1. Reading and writing to files
+Reading from and writing to files is a fundamental operation in any programming language. Let's compare how it's done in Perl and Python:
+
+### 8.1.1. Perl
+
+**Reading from a File:**
+
+```perl
+open(my $fh, '<', 'filename.txt') or die "Cannot open file: $!";
+while (<$fh>) {
+    print $_;  # or do some other operation
+}
+close($fh);
+```
+
+**Writing to a File:**
+
+```perl
+open(my $fh, '>', 'filename.txt') or die "Cannot open file: $!";
+print $fh "This is a line in the file.\n";
+close($fh);
+```
+
+**Appending to a File:**
+
+```perl
+open(my $fh, '>>', 'filename.txt') or die "Cannot open file: $!";
+print $fh "Appending this line.\n";
+close($fh);
+```
+
+### 8.1.2. Python
+
+**Reading from a File:**
+
+```python
+with open('filename.txt', 'r') as f:
+    for line in f:
+        print(line, end='')  # or do some other operation
+```
+
+**Writing to a File:**
+
+```python
+with open('filename.txt', 'w') as f:
+    f.write("This is a line in the file.\n")
+```
+
+**Appending to a File:**
+
+```python
+with open('filename.txt', 'a') as f:
+    f.write("Appending this line.\n")
+```
+
+**Some Observations:**
+
+- In Perl, the `open` function is used to open a file, and it's crucial to check if the operation succeeded using `or die`.
+  
+- In Python, the `open` function is also used to open a file. However, it's common to use the `with` statement when working with files. This ensures that the file is properly closed after its suite finishes, even if an exception is raised on the way.
+
+- The file modes in both languages are somewhat similar: 
+  - `'<'` or `'r'` for reading.
+  - `'>'` or `'w'` for writing (overwriting the file if it exists).
+  - `'>>'` or `'a'` for appending.
+
+The techniques mentioned are fundamental ways to handle files. Both languages offer advanced mechanisms and modules/libraries for file I/O operations, like handling binary data, working with specific file formats, etc.
+
+## 8.2. File modes and differences between binary and text modes
+Reading and writing files in text mode and binary mode are two different operations. The distinction is especially important on systems (like Windows) that distinguish between text and binary files at the system level. Let's examine the differences and how they're handled in both Perl and Python.
+
+### 8.2.1. File Modes:
+
+**Text Mode:**  
+In this mode, the file is treated as a text file. End-of-line sequences (like newline characters) are translated to the native representation for the system. On UNIX-like systems, it's `\n`, while on Windows, it's `\r\n`.
+
+**Binary Mode:**  
+In binary mode, the file data is read or written in the same format, without any translation. This is important for non-text files like images, audio files, etc.
+
+### 8.2.2. Perl:
+
+In Perl, you specify file modes when you open a file.
+
+**Text Mode:**
+
+```perl
+open(my $fh, '<', 'textfile.txt');   # Reading
+open(my $fh, '>', 'textfile.txt');   # Writing
+```
+
+**Binary Mode:**
+
+To read or write in binary mode in Perl, you add a `binmode()` call after opening the file.
+
+```perl
+open(my $fh, '<', 'binaryfile.bin');
+binmode($fh);  # Switch to binary mode
+```
+
+### 8.2.3. Python:
+
+In Python, you specify the file mode directly in the `open` function.
+
+**Text Mode:**
+
+```python
+with open('textfile.txt', 'r') as f:  # Reading
+    pass
+
+with open('textfile.txt', 'w') as f:  # Writing
+    pass
+```
+
+**Binary Mode:**
+
+The 'b' character is added to the mode to open files in binary mode in Python.
+
+```python
+with open('binaryfile.bin', 'rb') as f:  # Reading in binary mode
+    pass
+
+with open('binaryfile.bin', 'wb') as f:  # Writing in binary mode
+    pass
+```
+
+### 8.2.4. Differences between Binary and Text Modes:
+
+1. **End of Line Translation:**  
+   - In text mode, the end-of-line characters are translated to the system's native format when writing and are translated back to the `\n` character when reading.
+   - In binary mode, no such translation occurs. Data is read and written as-is.
+
+2. **File Position:**  
+   - In text mode, because of the end-of-line translation, the position in the file (as reported by functions like `tell` in Perl or Python) may not be the actual number of bytes from the start of the file.
+   - In binary mode, the position corresponds directly to the byte offset.
+
+3. **File Content:**  
+   - In text mode, certain character sequences might be treated differently (like EOF on some systems).
+   - In binary mode, all byte values are valid and are not treated specially.
+
+4. **Use Cases:**  
+   - Text mode is suitable for text files (like `.txt`, `.csv`, `.json`, etc.).
+   - Binary mode is essential for binary files (like images, audio files, etc.) and when you need an exact byte-for-byte reading or writing.
+
+## 8.3. Handling file paths using `os` module in Python
+The `os` module in Python provides a suite of functions to interact with the operating system, including handling file paths. Instead of hardcoding file paths, which may cause compatibility issues between different operating systems (e.g., Windows uses backslashes `\` while Linux and macOS use forward slashes `/`), you can use the `os` module to make your code more portable.
+
+Here are some commonly used `os` functionalities related to file paths:
+
+1. **Join Paths**: 
+   - Use `os.path.join()` to create paths by joining names with the appropriate separator for your OS.
+   ```python
+   import os
+   path = os.path.join("folder", "subfolder", "file.txt")
+   ```
+
+2. **Split Paths**:
+   - `os.path.split()` returns a tuple with the directory name and the file or subdirectory name.
+   ```python
+   directory, filename = os.path.split("/folder/subfolder/file.txt")
+   ```
+
+3. **File Extension**:
+   - `os.path.splitext()` breaks the pathname into a tuple `(root, ext)`.
+   ```python
+   root, extension = os.path.splitext("file.txt")
+   ```
+
+4. **Check Existence**:
+   - Check if a path exists using `os.path.exists()`.
+   ```python
+   if os.path.exists("path/to/file"):
+       print("File exists!")
+   ```
+
+5. **Absolute Path**:
+   - Get the absolute path with `os.path.abspath()`.
+   ```python
+   absolute_path = os.path.abspath("relative/path/to/file")
+   ```
+
+6. **Directory Name**:
+   - Get the directory name of the path with `os.path.dirname()`.
+   ```python
+   dir_name = os.path.dirname("/path/to/file.txt")
+   ```
+
+7. **Basename**:
+   - Get the base name of the path (i.e., everything after the last directory separator) with `os.path.basename()`.
+   ```python
+   base = os.path.basename("/path/to/file.txt")  # returns 'file.txt'
+   ```
+
+8. **Check if Directory or File**:
+   - Use `os.path.isdir()` to check if a path is a directory and `os.path.isfile()` to check if a path is a regular file.
+   ```python
+   if os.path.isdir("path/to/directory"):
+       print("It's a directory!")
+   elif os.path.isfile("path/to/file"):
+       print("It's a file!")
+   ```
+
+9. **Create Directories**:
+   - For creating directories, use `os.makedirs()`. It can create any intermediate directories in the given path if they don't exist.
+   ```python
+   os.makedirs("path/to/create/directory", exist_ok=True)  # exist_ok=True will not raise an error if the directory already exists.
+   ```
+
+10. **List Directories and Files**:
+    - List contents of a directory with `os.listdir()`.
+   ```python
+   items = os.listdir("path/to/directory")
+   ```
+
+Remember, while the `os` module provides basic path manipulation functionalities, the `pathlib` module, available from Python 3.4 and onwards, provides an object-oriented interface and is now considered a more modern way to handle filesystem paths in Python.
+
+## 8.4. Handling file paths using `pathlib` module in Python
+The `pathlib` module in Python provides a more elegant, object-oriented way to handle filesystem paths, making the process more intuitive and reducing the need for using different functions for different operations. Here's how you can use `pathlib` for various common tasks related to file paths:
+
+### 8.4.1. Importing the Module
+```python
+from pathlib import Path
+```
+
+### 8.4.2. Creating a Path
+```python
+# Current directory
+p = Path('.')
+# Specific directory or file
+p = Path('/path/to/directory')
+```
+
+### 8.4.3. Joining Paths
+```python
+new_path = Path('/path/to') / 'directory' / 'file.txt'
+```
+
+### 8.4.4. Reading & Writing Files
+```python
+# Reading text
+content = Path('file.txt').read_text()
+
+# Writing text
+Path('file.txt').write_text('Hello, World!')
+
+# Reading bytes
+content = Path('file.bin').read_bytes()
+
+# Writing bytes
+Path('file.bin').write_bytes(b'Hello, World!')
+```
+
+### 8.4.5. Checking Existence, Type, etc.
+```python
+p = Path('path/to/file')
+
+p.exists()  # Check if path exists
+p.is_file()  # Check if it's a file
+p.is_dir()  # Check if it's a directory
+```
+
+### 8.4.6. File Properties
+```python
+p.name  # e.g., 'file.txt'
+p.stem  # e.g., 'file' (without extension)
+p.suffix  # e.g., '.txt'
+p.parent  # returns parent directory
+```
+
+### 8.4.7. Iterating Over Directory Contents
+```python
+directory = Path('/path/to/directory')
+for item in directory.iterdir():
+    print(item)
+```
+
+### 8.4.8. Searching for Files with Globbing
+```python
+# This will list all Python files in the directory
+for py_file in Path('.').glob('*.py'):
+    print(py_file)
+```
+
+### 8.4.9. Create and Remove Directories
+```python
+dir_path = Path('/path/to/new_directory')
+
+# Create a new directory
+dir_path.mkdir(parents=True, exist_ok=True)  # parents=True makes any necessary parent directories, exist_ok=True does not raise an error if the directory exists.
+
+# Remove a directory
+dir_path.rmdir()
+```
+
+### 8.4.10. Absolute Path
+```python
+absolute_path = Path('relative/path').resolve()
+```
+
+### 8.4.11. Convert to String
+```python
+str_path = str(Path('path/to/directory'))
+```
+
+### 8.4.12. Comparison to `os.path`
+Whereas with `os.path` you'd often chain multiple functions together, with `pathlib` many operations become methods on a Path object, leading to more readable and compact code.
+
+For instance:
+- Instead of `os.path.join(path, 'dir1', 'dir2')`, you'd use `path / 'dir1' / 'dir2'`.
+- Instead of `os.path.isfile(path)`, you'd use `path.is_file()`.
+
+# 9. Regular Expressions
+## 9.1. PERL's built-in regex capabilities vs. Python's re module
+Regular expressions are a powerful tool for text processing and pattern matching. Both Perl and Python offer strong regex support, but they have different nuances and behaviors. Here's a comparison between Perl's built-in regex capabilities and Python's `re` module:
+
+### 9.1.1. Basic Syntax:
+- **Perl**:
+  ```perl
+  if ($string =~ /pattern/) {
+      # Matched pattern
+  }
+  ```
+
+- **Python**:
+  ```python
+  import re
+  if re.search("pattern", string):
+      # Matched pattern
+  ```
+
+### 9.1.2. Match and Capture:
+- **Perl**:
+  ```perl
+  if ($string =~ /(pattern)/) {
+      print $1;  # Prints captured group
+  }
+  ```
+
+- **Python**:
+  ```python
+  match = re.search("(pattern)", string)
+  if match:
+      print(match.group(1))
+  ```
+
+### 9.1.3. Global Matching:
+- **Perl**:
+  ```perl
+  while ($string =~ /pattern/g) {
+      # Code for each match
+  }
+  ```
+
+- **Python**:
+  ```python
+  for match in re.finditer("pattern", string):
+      # Code for each match
+  ```
+
+### 9.1.4. Substitution:
+- **Perl**:
+  ```perl
+  $string =~ s/pattern/replacement/;
+  ```
+
+- **Python**:
+  ```python
+  string = re.sub("pattern", "replacement", string)
+  ```
+
+### 9.1.5. Modifiers:
+Both languages offer modifiers to change the behavior of regex matching, but the syntax is different.
+
+- **Perl**:
+  ```perl
+  $string =~ /pattern/i;   # Case-insensitive matching
+  ```
+
+- **Python**:
+  ```python
+  re.search("pattern", string, re.I)  # Case-insensitive matching
+  ```
+
+### 9.1.6. Compilation for Efficiency:
+While Perl automatically optimizes and caches regex patterns, in Python, you can compile regex patterns for repeated use to increase efficiency.
+
+- **Python**:
+  ```python
+  pattern = re.compile("pattern")
+  match = pattern.search(string)
+  ```
+
+### 9.1.7. Verbose Mode:
+Both languages allow for a "verbose" mode to make regex more readable.
+
+- **Perl**:
+  ```perl
+  $string =~ /
+      pattern
+      more_pattern
+  /x;
+  ```
+
+- **Python**:
+  ```python
+  pattern = re.compile("""
+      pattern
+      more_pattern
+  """, re.VERBOSE)
+  ```
+
+### 9.1.8. Multiline Mode:
+Multiline mode changes the behavior of `^` and `$` to match the start or end of a line, respectively, instead of the start or end of a string.
+
+- **Perl**:
+  ```perl
+  $string =~ /pattern/m;
+  ```
+
+- **Python**:
+  ```python
+  re.search("pattern", string, re.M)
+  ```
+
+### 9.1.9. Search for variables
+In Perl, you might use the pattern to extract variable from string. In Python you can do same.
+
+ - **Perl**:
+```perl
+if ($string =~ m/(\d+)/) {
+    print $1;  # Prints captured group of digits
+}
+```
+
+ - **Python**:
+```python
+import re
+
+match = re.search("(\d+)", string, re.DOTALL)
+if match:
+    print(match.group(1))
+```
+
+### 9.1.10. Final Thoughts:
+
+- **Brevity**: Perl's built-in regex syntax is more concise due to its tight integration with the language. Regex is one of Perl's distinguishing features, and the language was built with text processing in mind.
+  
+- **Explicitness**: Python's `re` module is more explicit and requires importing a module. This can be seen as an advantage because it makes it clear when regex is being used and offers a separation between regular string operations and regex operations.
+  
+- **Flexibility**: Both offer a wide range of functionalities and modifiers, making them both very powerful for regular expression operations.
+
+In general, developers coming from a Perl background might find Python's `re` module a bit more verbose, but they will also find most of the regex features they're familiar with, and with a little practice, they can become just as proficient with Python's regex capabilities.
+
+## 9.2. Differences in syntax and capabilities
+
+Both Perl and Python support regular expressions (regex), and while they share many similarities due to their reliance on the underlying principles of regex, there are differences in syntax and some capabilities. Here's a comparison:
+
+## 9.3. **1. Delimiters:**
+
+- **Perl:** Uses delimiters to denote a regex pattern, typically using slashes, e.g., `/pattern/`. But other delimiters can be used like `m|pattern|`, `m!pattern!`, etc.
+
+- **Python:** Uses a string without delimiters in the `re` module, e.g., `re.search("pattern", string)`.
+
+## 9.4. **2. Flags/Modifiers:**
+
+- **Perl:** Appends flags directly after the pattern, e.g., `/pattern/i` for case-insensitive matching.
+
+- **Python:** Passes flags as a third argument to the `re` functions, e.g., `re.search("pattern", string, re.I)` for case-insensitive matching.
+
+## 9.5. **3. Named Capture Groups:**
+
+- **Perl:** 
+  ```perl
+  if ($string =~ /(?<name>pattern)/) {
+      print $+{name};  # Access named group
+  }
+  ```
+
+- **Python:**
+  ```python
+  match = re.search(r'(?P<name>pattern)', string)
+  if match:
+      print(match.group('name'))
+  ```
+
+## 9.6. **4. Non-capturing Groups:**
+
+- **Perl:** Uses `(?:pattern)` for non-capturing groups.
+
+- **Python:** Also uses `(?:pattern)` for non-capturing groups.
+
+## 9.7. **5. Lookaheads and Lookbehinds:**
+
+- **Perl & Python:** Both support positive and negative lookaheads (`(?=...)` and `(?!...)`) and lookbehinds (`(?<=...)` and `(?<!...)`).
+
+- **Python Limitation:** Python's `re` module requires fixed-width patterns for lookbehinds, while Perl does not have this limitation.
+
+## 9.8. **6. Compilation for Repeated Use:**
+
+- **Perl:** Automatically caches and optimizes regex patterns.
+
+- **Python:** Offers explicit compilation for efficiency with `re.compile("pattern")`.
+
+## 9.9. **7. Global Matching:**
+
+- **Perl:** Can use the `/g` flag to match globally within a string, e.g., `$string =~ /pattern/g`.
+
+- **Python:** Uses the `re.findall("pattern", string)` method to find all matches or `re.finditer("pattern", string)` to get an iterator.
+
+## 9.10. **8. Verbose Mode for Readability:**
+
+- **Perl:** Uses the `/x` modifier, allowing for free-spacing mode and inline comments, e.g., `/ pattern /x`.
+
+- **Python:** Uses the `re.VERBOSE` flag, offering similar functionality.
+
+## 9.11. **9. String Interpolation:**
+
+- **Perl:** Can directly interpolate variables in a regex pattern, e.g., `/${variable}/`.
+
+- **Python:** String interpolation can be done using Python's string formatting before passing to `re`, e.g., `re.search(f"{variable}", string)` with f-strings in Python 3.6+.
+
+## 9.12. **10. Unicode Handling:**
+
+- **Perl:** Uses the `/u` modifier for Unicode string semantics.
+
+- **Python:** In Python 3, strings are Unicode by default, and the `re` module works with Unicode naturally.
+
+## 9.13. **Conclusion:**
+While both Perl and Python offer comprehensive regex capabilities, Perl's regex integration is more intrinsic to the language and can sometimes be more concise. On the other hand, Python's approach with the `re` module is more explicit and modular. If you're transitioning from Perl to Python, it's essential to familiarize yourself with Python's `re` module documentation to understand all the nuances.
+
+## 9.14. Performace regular expressions of perl vs. python
+The performance of regular expressions in Perl versus Python is a nuanced topic, and the actual difference in performance can vary based on the specific use case, the complexity of the regular expressions, and the input data. However, some general observations can be made:
+
+1. **Heritage and Design Philosophy**:
+   - **Perl**: Perl's name itself is an acronym for "Practical Extraction and Reporting Language," highlighting its text processing capabilities. Perl's regex engine has been regarded as one of the fastest and most powerful for many years. Regular expressions are deeply integrated into the Perl language, and thus it is optimized for regex processing.
+   
+   - **Python**: While Python supports regular expressions through the `re` module and they are robust, regex is just one of many features of the language. Python's philosophy emphasizes readability, simplicity, and general-purpose programming over raw performance in text processing.
+
+2. **Performance**:
+   - **Perl**: Typically, for straightforward text processing tasks that rely heavily on regular expressions, Perl can be faster than Python. Its regex engine is highly optimized.
+   
+   - **Python**: For complex and nested regular expressions, the performance between Perl and Python might be closer. However, if regex performance is a concern in Python, one might consider using the `regex` library (available via pip) which offers more features and can sometimes be faster than the built-in `re` module.
+
+3. **Use Cases**:
+   - If you're performing simple text processing tasks with a lot of regex operations, Perl might have a slight edge.
+   - For larger applications where regex is a part but not the primary function, the difference in regex performance might not significantly impact the overall performance, and other factors (like ease of integration, maintainability, etc.) become more crucial.
+
+4. **External Factors**:
+   - The performance can also be influenced by other factors such as the specific version of Perl or Python being used, the underlying system's capabilities, and any potential overhead introduced by other libraries or frameworks in use.
+
+5. **Optimizations**:
+   - Both Perl and Python offer ways to pre-compile regular expressions for reuse, which can boost performance in scenarios where the same pattern is used repeatedly.
+   
+6. **Specificity Matters**: 
+   - Benchmarks for specific tasks might show varying results. It's always a good idea to benchmark the specific regex patterns and tasks you're interested in to get a more accurate comparison.
+
+7. **Modern Libraries**:
+   - As mentioned earlier, Python has an external `regex` library which expands upon the capabilities of the built-in `re` module. This library often performs faster and can match the performance of Perl's regex for certain tasks.
+
+# 10. Object-Oriented Programming
+
+## 10.1. Class definition, inheritance, encapsulation, and polymorphism in Python
+
+Alright, let's dive into the concepts of object-oriented programming in Python, specifically class definition, inheritance, encapsulation, and polymorphism.
+
+### 10.1.1. Class Definition:
+
+In Python, you define a class using the `class` keyword. It serves as a blueprint for creating objects.
+
+```python
+class MyClass:
+    x = 5
+
+# Create an instance of MyClass
+p1 = MyClass()
+print(p1.x)  # Outputs: 5
+```
+
+### 10.1.2. Inheritance:
+
+Inheritance allows us to define a class that inherits all the methods and properties from another class. The **parent** or **base** class is the class being inherited from, and the **derived** or **child** class is the class that inherits from the base class.
+
+```python
+# Parent class
+class Parent:
+    def fname(self):
+        print("Parent function")
+
+# Derived class
+class Child(Parent):
+    def fname(self):  # Overriding the parent method
+        print("Child function")
+
+c = Child()
+c.fname()  # Outputs: Child function
+```
+
+### 10.1.3. Encapsulation:
+
+Encapsulation refers to the bundling of data and methods that operate on that data within one unit (class). It restricts direct access to some of an object's components, which can prevent accidental modification of data. In Python, this is achieved with private and protected modifiers.
+
+- **Private attributes/methods**: They start with a double underscore `__`. They cannot be accessed or modified outside the class.
+
+- **Protected attributes/methods**: They start with a single underscore `_`. This is more of a convention, suggesting not to touch it from outside the class, but it can still be accessed if required.
+
+```python
+class EncapExample:
+    def __init__(self):
+        self.public = "Public"
+        self._protected = "Protected"
+        self.__private = "Private"
+
+    def access_private(self):
+        return self.__private
+
+obj = EncapExample()
+
+# Directly accessible
+print(obj.public)      # Outputs: Public
+
+# Conventionally protected (but still accessible)
+print(obj._protected)  # Outputs: Protected
+
+# Throws error, as it's private
+# print(obj.__private)
+
+# Accessible through a class method
+print(obj.access_private())  # Outputs: Private
+```
+
+### 10.1.4. Polymorphism:
+
+Polymorphism allows objects of different classes to be treated as objects of a common super class. The most common use of polymorphism is when a parent class reference is used to refer to a child class object.
+
+```python
+class Animal:
+    def sound(self):
+        return "Some sound"
+
+class Dog(Animal):
+    def sound(self):
+        return "Bark"
+
+class Cat(Animal):
+    def sound(self):
+        return "Meow"
+
+# Polymorphism in action
+for animal in [Dog(), Cat()]:
+    print(animal.sound())
+```
+
+Output:
+```
+Bark
+Meow
+```
+
+In this example, both `Dog` and `Cat` are treated as `Animal` in the for loop, and we get to see the polymorphic nature of the `sound` method.
+
+## 10.2. Comparing OO in PERL and Python
+Object-Oriented Programming (OOP) is a paradigm that facilitates the organization of code around 'objects' which can bundle both data and methods that operate on the data. Both Perl and Python support OOP, but the way they implement and use OOP differs. Let's take a comparative look at some of the foundational aspects of OOP in both languages.
+
+### 10.2.1. Class Definition:
+
+- **Perl**: Historically, Perl employed packages to simulate classes. A class is essentially a package that uses the `bless` function to associate an object with a package.
+  ```perl
+  package MyClass;
+  sub new {
+      my $class = shift;
+      my $self = {};
+      bless($self, $class);
+      return $self;
+  }
+  ```
+
+- **Python**: In Python, classes are more directly supported with the `class` keyword.
+  ```python
+  class MyClass:
+      def __init__(self):
+          pass
+  ```
+
+### 10.2.2. Inheritance:
+
+- **Perl**:
+  ```perl
+  package Parent;
+  sub foo {
+      print "Parent method\n";
+  }
+  
+  package Child;
+  our @ISA = qw(Parent);
+  ```
+
+- **Python**:
+  ```python
+  class Parent:
+      def foo(self):
+          print("Parent method")
+
+  class Child(Parent):
+      pass
+  ```
+
+### 10.2.3. Encapsulation:
+
+- **Perl**: By default, everything in Perl is public. Conventionally, a leading underscore is used to indicate that something is intended to be 'private', but it's just a convention.
+  ```perl
+  package MyClass;
+  sub public_method { ... }
+  sub _private_method { ... }  # convention only
+  ```
+
+- **Python**: Uses underscores for protection levels:
+  ```python
+  class MyClass:
+      def public_method(self):
+          pass
+      def _protected_method(self):  # conventionally protected
+          pass
+      def __private_method(self):   # name mangling to make it less accessible
+          pass
+  ```
+
+### 10.2.4. Polymorphism:
+
+- **Perl**: Thanks to Perl's dynamic nature, polymorphism comes naturally. You call a method on an object; if it responds to that method, it works.
+  ```perl
+  $object->method() if $object->can('method');
+  ```
+
+- **Python**: Also dynamically typed, Python supports polymorphism inherently. If an object has a method, you can call it.
+  ```python
+  if hasattr(object, 'method'):
+      object.method()
+  ```
+
+### 10.2.5. Object Instantiation:
+
+- **Perl**:
+  ```perl
+  my $object = MyClass->new();
+  ```
+
+- **Python**:
+  ```python
+  object = MyClass()
+  ```
+
+### 10.2.6. Attributes & Methods:
+
+- **Perl**: Attributes are typically stored in a hash and methods access them using the hash keys.
+  
+- **Python**: Attributes and methods are more distinctly separated. You define attributes inside `__init__` and access them using `self.attribute_name` in other methods.
+
+### 10.2.7. Conclusion:
+
+Python's OOP feels more "built-in" and direct, while Perl's OOP has evolved over time and feels more like an adaptation of its existing structures. Perl's Moose (and Moo) framework has, however, modernized Perl's OOP, offering a more robust and contemporary OOP experience. Still, in vanilla terms, Python's OOP is more straightforward and conventional for someone familiar with other OOP-centric languages like Java or C++.
+
+# 11. Exception Handling
+## 11.1. Eval and die in PERL vs. try, except, finally in Python
+Both Perl and Python provide mechanisms for exception handling, but they differ in terminology, syntax, and approach. Here's a comparison of how each language tackles this aspect of programming:
+
+### 11.1.1. Perl: `eval` and `die`
+
+In Perl, error handling is often achieved using the combination of `eval`, `die`, and `$@`.
+
+- **eval**: Used to capture exceptions. It wraps a block of code that might throw an exception.
+  
+- **die**: Used to throw an exception. In a normal context, it simply terminates the script, but within an `eval` block, it acts like an exception being thrown.
+
+- **$@**: After an `eval`, this special variable contains any error message produced by `die` (or other errors). If no error occurred, `$@` is an empty string.
+
+**Example**:
+```perl
+eval {
+    # potentially error-prone code
+    die "An error occurred!" if $some_condition;
+};
+if ($@) {
+    print "Error caught: $@\n";
+}
+```
+
+### 11.1.2. Python: `try`, `except`, `finally`
+
+In Python, the primary mechanism for exception handling is the combination of `try`, `except`, `finally`, and `raise`.
+
+- **try**: A block that contains code which might cause an exception.
+
+- **except**: Catches exceptions thrown in the `try` block. You can catch specific exceptions or all of them.
+
+- **finally**: (Optional) A block that will always execute after the `try` block, regardless of whether an exception occurred.
+
+- **raise**: Used to throw/raise an exception.
+
+**Example**:
+```python
+try:
+    # potentially error-prone code
+    if some_condition:
+        raise Exception("An error occurred!")
+except Exception as e:
+    print(f"Error caught: {e}")
+finally:
+    print("This will always run")
+```
+
+### 11.1.3. Key Differences:
+
+1. **Terminology & Syntax**: Perl's `eval` and `die` are roughly equivalent to Python's `try` and `raise` respectively. However, the syntax and flow are different.
+  
+2. **Error Variables**: In Perl, the error is stored in `$@`, while in Python, you can directly catch the error into a variable with the `except` block.
+
+3. **Flexibility**: Python's exception handling is more structured and offers more flexibility in handling different types of errors with multiple `except` blocks.
+
+4. **Always Execute**: Perl doesn't have a built-in direct equivalent to Python's `finally`. If you want a block of code to always execute in Perl, you'll need to handle that manually outside of the `eval` (or use modules like `Try::Tiny` which offer such functionality).
+
+In essence, while both languages provide the tools to handle exceptions robustly, Python's approach is more structured, whereas Perl's is more flexible and relies more on conventions.
+
+## 11.2. Custom exception classes in Python
+In Python, you can define custom exception classes to raise and catch specific exceptions that cater to the particular needs of your application. This allows for more expressive and meaningful exception handling.
+
+To define a custom exception, you simply need to define a new class that inherits from Python's built-in `BaseException` class or one of its derived classes (typically `Exception`).
+
+Here's how to do it:
+
+### 11.2.1. Defining a Custom Exception
+
+```python
+# Define a new exception class
+class CustomError(Exception):
+    """Base class for other exceptions"""
+    pass
+
+class ValueTooSmallError(CustomError):
+    """Raised when the input value is too small"""
+    pass
+
+class ValueTooLargeError(CustomError):
+    """Raised when the input value is too large"""
+    pass
+```
+
+### 11.2.2. Raising and Handling the Custom Exception
+
+```python
+number = 10
+
+while True:
+    try:
+        i_num = int(input("Enter a number: "))
+        if i_num < number:
+            raise ValueTooSmallError
+        elif i_num > number:
+            raise ValueTooLargeError
+        break
+    except ValueTooSmallError:
+        print("This value is too small, try again!")
+    except ValueTooLargeError:
+        print("This value is too large, try again!")
+
+print("Congratulations! You guessed it correctly.")
+```
+
+### 11.2.3. Adding Custom Attributes and Methods to an Exception Class
+
+You can make your custom exceptions more informative by adding additional attributes and methods:
+
+```python
+class ErrorWithCode(Exception):
+    def __init__(self, message, code):
+        super().__init__(message)
+        self.code = code
+
+    def log_error(self):
+        # Custom method to log the error, for example
+        print(f"Logging error with code: {self.code}, message: {self.message}")
+
+# Using the custom exception
+try:
+    raise ErrorWithCode("A custom exception occurred", 500)
+except ErrorWithCode as e:
+    print(f"Caught an error: {e}")
+    e.log_error()
+```
+
+By leveraging custom exception classes in Python, you can greatly enhance the clarity and precision of error reporting and handling in your applications.
+
+## 11.3. Perl `longmess` vs. `traceback` in Python
+In Perl, the `Carp` module provides the `longmess` function which is used to get the full stack trace of where an error occurred. This can be handy for tracking down where and why a particular error is being raised.
+
+```perl
+use Carp;
+
+sub some_function {
+    another_function();
+}
+
+sub another_function {
+    # Generate an error with a full stack trace
+    die Carp::longmess("Something went wrong");
+}
+
+some_function();
+```
+
+In Python, the traceback module provides a similar way to obtain and work with the stack trace. Specifically, you can use the `format_exc` function from the `traceback` module to get a string representation of the current exception stack trace, akin to Perl's `longmess`.
+
+Here's how you might use it:
+
+```python
+import traceback
+
+def some_function():
+    another_function()
+
+def another_function():
+    # Generate an error with a full stack trace
+    raise Exception(traceback.format_exc())
+
+try:
+    some_function()
+except Exception as e:
+    print(e)
+```
+
+The `traceback.format_exc()` function returns the stack trace as a string, and you can incorporate it into custom exceptions or error messages to have a similar effect as Perl's `longmess`.
+
+# 12. Miscellaneous
