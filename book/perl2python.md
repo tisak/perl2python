@@ -241,22 +241,23 @@ Dive into each module to uncover the intricacies and nuances of transitioning yo
     - [11.2.3. Adding Custom Attributes and Methods to an Exception Class](#1123-adding-custom-attributes-and-methods-to-an-exception-class)
   - [11.3. Perl `longmess` vs. `traceback` in Python](#113-perl-longmess-vs-traceback-in-python)
 - [12. Miscellaneous](#12-miscellaneous)
-  - [The importance of indentation in Python](#the-importance-of-indentation-in-python)
-  - [The use of documentation and docstrings in Python](#the-use-of-documentation-and-docstrings-in-python)
-    - [**Docstrings**:](#docstrings)
-    - [**Documentation Guidelines**:](#documentation-guidelines)
-    - [**Tools and Integration**:](#tools-and-integration)
-    - [**Conclusion**:](#conclusion-1)
-  - [Decorators in Python](#decorators-in-python)
-    - [**Basic Decorator**:](#basic-decorator)
-    - [**Decorators with Arguments**:](#decorators-with-arguments)
-    - [**Decorators for Methods**:](#decorators-for-methods)
-    - [**Using functools.wraps**:](#using-functoolswraps)
-    - [**Built-in Decorators**:](#built-in-decorators)
-    - [**Conclusion**:](#conclusion-2)
-  - [Recommended IDEs for Python](#recommended-ides-for-python)
-    - [VSCode Python Setup](#vscode-python-setup)
-    - [Vim Python Setup](#vim-python-setup)
+  - [12.1. The importance of indentation in Python](#121-the-importance-of-indentation-in-python)
+  - [12.2. The use of documentation and docstrings in Python](#122-the-use-of-documentation-and-docstrings-in-python)
+    - [12.2.1. **Docstrings**:](#1221-docstrings)
+    - [12.2.2. **Documentation Guidelines**:](#1222-documentation-guidelines)
+    - [12.2.3. **Tools and Integration**:](#1223-tools-and-integration)
+    - [12.2.4. **Conclusion**:](#1224-conclusion)
+  - [12.3. Decorators in Python](#123-decorators-in-python)
+    - [12.3.1. **Basic Decorator**:](#1231-basic-decorator)
+    - [12.3.2. **Decorators with Arguments**:](#1232-decorators-with-arguments)
+    - [12.3.3. **Decorators for Methods**:](#1233-decorators-for-methods)
+    - [12.3.4. **Using functools.wraps**:](#1234-using-functoolswraps)
+    - [12.3.5. **Built-in Decorators**:](#1235-built-in-decorators)
+    - [12.3.6. **Conclusion**:](#1236-conclusion)
+  - [12.4. Recommended IDEs for Python](#124-recommended-ides-for-python)
+    - [12.4.1. VSCode Python Setup](#1241-vscode-python-setup)
+    - [12.4.2. Vim Python Setup](#1242-vim-python-setup)
+
 
 ---
 
@@ -3577,7 +3578,7 @@ The `traceback.format_exc()` function returns the stack trace as a string, and y
 
 # 12. Miscellaneous
 
-## The importance of indentation in Python
+## 12.1. The importance of indentation in Python
 In Python, indentation isn't just a matter of style or code clarity; it's a fundamental aspect of the language's syntax. Unlike many other programming languages that use braces `{ }` or specific keywords (like `begin` and `end`) to delimit blocks of code, Python uses whitespace (specifically, indentation) to determine the structure of the code. This approach has implications:
 
 1. **Readability**: Indentation makes Python code visually structured and easy to read. The level of indentation provides a clear visual cue of the code's structure.
@@ -3604,10 +3605,10 @@ If the indentation for the second `print` statement were the same as the first, 
 
 In conclusion, while the use of indentation as a structural element might seem unusual to those coming from other programming languages, many Python developers appreciate its role in enforcing readability and clarity in Python code. If you're new to Python, it's crucial to be mindful of your indentation to avoid unexpected behaviors or syntax errors.
 
-## The use of documentation and docstrings in Python
+## 12.2. The use of documentation and docstrings in Python
 In Python, documentation and docstrings play a significant role in improving code readability, maintainability, and facilitating effective collaboration. They allow developers to understand the intention behind code segments, functions, classes, modules, and even entire libraries.
 
-### **Docstrings**:
+### 12.2.1. **Docstrings**:
 A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition and is used for explaining the purpose of the function, module, etc.
 
 #### **Writing a Docstring**:
@@ -3637,7 +3638,7 @@ You can access the docstring using the `__doc__` attribute of the function, modu
 print(add.__doc__)
 ```
 
-### **Documentation Guidelines**:
+### 12.2.2. **Documentation Guidelines**:
 
 1. **Module-Level Docstrings**: At the beginning of a module or script, describe what the module does, and list any global variables or constants.
 
@@ -3647,7 +3648,7 @@ print(add.__doc__)
 
 4. **Consistency**: It's helpful to follow a consistent format across all docstrings. There are several conventions like reStructuredText, Google, and Numpydoc.
 
-### **Tools and Integration**:
+### 12.2.3. **Tools and Integration**:
 Docstrings also integrate well with various tools:
 
 1. **Sphinx**: This is a documentation generator that extracts comments and docstrings to produce comprehensive documentation in various formats like HTML and LaTeX.
@@ -3669,16 +3670,16 @@ def add(a, b):
 
 3. **IDE Integration**: Many Integrated Development Environments (IDEs) and editors can show the docstring of a function or class when hovering over its usage, making it easier for a developer to understand its purpose and usage without going to the source.
 
-### **Conclusion**:
+### 12.2.4. **Conclusion**:
 Incorporating docstrings and well-documented comments into your Python code is a best practice that pays dividends in terms of code maintainability and collaboration. As the saying goes, "Code is more often read than written," so ensuring it's understandable to yourself and others in the future is invaluable.
 
-## Decorators in Python
+## 12.3. Decorators in Python
 
 Decorators in Python are a powerful and flexible way to modify or extend the functionality of functions or methods without changing their actual code. They provide a simple syntax to call higher-order functions, which means they take one or more functions as arguments and return a new function. 
 
 Decorators are commonly used for tasks such as logging, authorization, memoization, and more.
 
-### **Basic Decorator**:
+### 12.3.1. **Basic Decorator**:
 
 Here's a simple example of a decorator that logs when a function is called:
 
@@ -3699,7 +3700,7 @@ greet("Alice")  # Outputs: Calling function: greet
 
 In the example above, `@log_decorator` is a decorator that wraps the `greet` function with the `log_decorator`'s `wrapper` function.
 
-### **Decorators with Arguments**:
+### 12.3.2. **Decorators with Arguments**:
 
 Sometimes, you might want to pass arguments to decorators themselves:
 
@@ -3722,7 +3723,7 @@ greet("Alice")  # Outputs: Hello, Alice!
                #          Hello, Alice!
 ```
 
-### **Decorators for Methods**:
+### 12.3.3. **Decorators for Methods**:
 
 Decorators can also be applied to class methods. The primary difference is that the method takes `self` as its first argument:
 
@@ -3746,7 +3747,7 @@ p.greet()  # Outputs: Calling method: greet
            #          Hello, Bob!
 ```
 
-### **Using functools.wraps**:
+### 12.3.4. **Using functools.wraps**:
 
 When using decorators, the function's metadata (like its name, docstring, etc.) might get overridden by the metadata of the wrapping function. To avoid this, you can use `wraps` from the `functools` module:
 
@@ -3763,7 +3764,7 @@ def log_decorator(func):
 
 This will ensure that the decorated function retains its original metadata.
 
-### **Built-in Decorators**:
+### 12.3.5. **Built-in Decorators**:
 
 Python also comes with a few built-in decorators:
 
@@ -3771,11 +3772,11 @@ Python also comes with a few built-in decorators:
 - `@classmethod`: Used to define a class method.
 - `@property`: Used to define getters/setters for class attributes.
 
-### **Conclusion**:
+### 12.3.6. **Conclusion**:
 
 Decorators offer a way to intercept function or method calls and add pre/post-processing steps, allowing for cleaner, more modular, and DRY (Don't Repeat Yourself) code.
 
-## Recommended IDEs for Python
+## 12.4. Recommended IDEs for Python
 
 There are several Integrated Development Environments (IDEs) and code editors available for Python development. The best choice often depends on the specific needs and preferences of the developer. Here are some of the most popular and widely recommended IDEs and code editors for Python:
 
@@ -3836,7 +3837,7 @@ There are several Integrated Development Environments (IDEs) and code editors av
 
 Each IDE and code editor has its strengths and may cater to specific needs or types of development. It's recommended to try a few of them to determine which one aligns best with your workflow and preferences.
 
-### VSCode Python Setup
+### 12.4.1. VSCode Python Setup
 
 Setting up Python development in Visual Studio Code (VSCode) is straightforward, thanks to its extensive extension library and integrated terminal. Here's a step-by-step guide to setting up Python in VSCode:
 
@@ -3883,7 +3884,7 @@ Setting up Python development in Visual Studio Code (VSCode) is straightforward,
 
 That's the basic setup for Python in VSCode. It provides a rich environment for Python development, complete with debugging, IntelliSense, code navigation, and more.
 
-### Vim Python Setup
+### 12.4.2. Vim Python Setup
 
 Setting up Python development in Vim can be as minimal or as feature-rich as you'd like. Here's a comprehensive guide to setting up a Python-focused development environment in Vim:
 
@@ -3933,3 +3934,4 @@ Setting up Python development in Vim can be as minimal or as feature-rich as you
    - [vimspector](https://github.com/puremourning/vimspector): Provides visual debugging capabilities.
 
 Remember to regularly update your plugins for the latest features and bug fixes. Also, take the time to read the documentation for each plugin you add, as it will often reveal useful features and shortcuts.
+
